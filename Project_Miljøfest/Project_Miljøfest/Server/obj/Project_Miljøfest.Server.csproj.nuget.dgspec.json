@@ -1,0 +1,212 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+        "projectName": "Project_Miljøfest.Client",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[6.0.3, 6.0.3]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj",
+        "projectName": "Project_Miljøfest.Server",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj"
+              },
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "projectName": "Project_Miljøfest.Shared",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
