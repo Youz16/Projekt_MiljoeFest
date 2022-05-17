@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {}
+    "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {
+    "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
         "projectName": "Project_Miljøfest.Client",
-        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
-        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+        "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
-                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
+              "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+                "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
               }
             }
           }
@@ -67,7 +67,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.3, 6.0.3]"
+              "version": "[6.0.1, 6.0.1]"
             }
           ],
           "frameworkReferences": {
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -84,17 +84,17 @@
         }
       }
     },
-    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+    "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
         "projectName": "Project_Miljøfest.Shared",
-        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
-        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -134,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

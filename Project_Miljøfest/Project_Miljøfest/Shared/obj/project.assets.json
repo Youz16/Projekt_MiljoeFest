@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\PCUser\\.nuget\\packages\\": {}
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
       "projectName": "Project_Miljøfest.Shared",
-      "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
-      "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljøFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
+      "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+      "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
