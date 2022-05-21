@@ -1,6 +1,6 @@
 ﻿namespace Project_Miljøfest.Server
 {
-    public class Shift : Assignment
+    public class Shift : Department
     {
         public int shiftId;
         public bool IsBooked { get; set; }
@@ -10,5 +10,8 @@
             this.shiftId = shiftId;
             this.IsBooked = false;
         }
-    }
+
+        
+       
+        }
 }

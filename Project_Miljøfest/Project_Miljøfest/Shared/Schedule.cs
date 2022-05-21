@@ -2,11 +2,11 @@
 {
     public class Schedule
     {
-        public List<Assignment> Assignments;
+        public List<Department> Assignments;
 
         public Schedule()
         {
-            Assignments = new List<Assignment>();
+            Assignments = new List<Department>();
         }
     }
 }

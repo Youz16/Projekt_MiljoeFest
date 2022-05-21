@@ -1,6 +1,6 @@
 ﻿namespace Project_Miljøfest.Server
 {
-    public class Assignment
+    public class Department
     {
         public int assignmentId;
         public string AssignmentName { get; set; }
@@ -10,7 +10,7 @@
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 
-        public Assignment(int id, string assignmentName, int shifts, string loc, DateTime start, DateTime end)
+        public Department(int id, string assignmentName, int shifts, string loc, DateTime start, DateTime end)
         {
             this.assignmentId = id;
             this.AssignmentName = assignmentName;
@@ -21,7 +21,7 @@
             this.End = end;
         }
 
-        public Assignment(string assignmentName, string loc, DateTime start, DateTime end)
+        public Department(string assignmentName, string loc, DateTime start, DateTime end)
         {
             this.AssignmentName = assignmentName;
             this.Location = loc;

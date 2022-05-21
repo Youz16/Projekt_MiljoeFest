@@ -1,18 +1,24 @@
-﻿@page "/counter"
+﻿@using Project_Miljøfest.Shared
+@inject HttpClient Http
+
+
+@page "/counter"
 
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
+<h1></h1>
 
-<p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="">Click me</button>
 
 @code {
-    private int currentCount = 0;
 
-    private void IncrementCount()
+
+    User u = new(1, "Sven", "5256532", "sven@mail", "Sej til at svejse");
+
+    public async void NewUser(User u)
     {
-        currentCount++;
+        await Http.PostAsJsonAsync<User>("UserController", u);
     }
 }

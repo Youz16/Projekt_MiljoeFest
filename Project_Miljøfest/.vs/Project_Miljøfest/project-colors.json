@@ -5,7 +5,17 @@
       "ProjectGuid": "b606267c-5edd-49e0-b6c4-896784396090",
       "DisplayName": "Project_Miljøfest.Server",
       "ColorIndex": 0
+    },
+    "8962e44c-49ec-462c-993d-ecc946ed5c8d": {
+      "ProjectGuid": "8962e44c-49ec-462c-993d-ecc946ed5c8d",
+      "DisplayName": "Project_Miljøfest.Client",
+      "ColorIndex": 1
+    },
+    "23667673-4c1d-437f-9dfe-6d4bb255de37": {
+      "ProjectGuid": "23667673-4c1d-437f-9dfe-6d4bb255de37",
+      "DisplayName": "Project_Miljøfest.Shared",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }
