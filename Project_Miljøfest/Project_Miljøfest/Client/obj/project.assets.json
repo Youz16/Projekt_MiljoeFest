@@ -5020,11 +5020,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+      "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
       "projectName": "Project_Miljøfest.Client",
-      "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
+      "projectPath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\Project_Miljøfest.Client.csproj",
       "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\obj\\",
+      "outputPath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5041,8 +5041,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
-              "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
+            "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+              "projectPath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj"
             }
           }
         }

@@ -21,5 +21,17 @@ namespace Project_Miljøfest.Server.Controllers
 
             return shifts;
         }
+
+        [HttpPost("delete")]
+        public async Task DeleteShift(int shiftId)
+        {
+            await _sqlRepository.DeleteUser(shiftId);
+        }
+
+        [HttpPost("create")]
+        public async Task CreateShift(Shift s)
+        {
+            await _sqlRepository.CreateShift(s);
+        }
     }
 }

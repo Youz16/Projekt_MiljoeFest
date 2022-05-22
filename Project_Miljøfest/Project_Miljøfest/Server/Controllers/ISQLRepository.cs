@@ -10,5 +10,13 @@ namespace Project_Miljøfest.Server.Controllers
         Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked);
 
         Task UpdateUser(int userId, User u);
+
+        Task<IEnumerable<Shift>> GetUserShifts(int userId);
+
+        Task DeleteUser(int userId);
+
+        Task DeleteShift(int shiftId);
+
+        Task CreateShift(Shift s);
     }
 }

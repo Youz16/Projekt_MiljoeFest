@@ -25,6 +25,23 @@ namespace Project_Miljøfest.Server.Controllers
              await _sqlRepository.UpdateUser(userId, u);
         }
 
-        
+        [HttpPost("delete")]
+        public async Task DeleteUser(int userId)
+        {
+            await _sqlRepository.DeleteUser(userId);
+        }
+
+        [HttpGet("userShifts")]
+        public async Task<IEnumerable<Shift>> UserShifts(int userId)
+        {
+            List<Shift> shifts = new();
+            var list = await _sqlRepository.GetUserShifts(userId);
+            foreach (Shift s in list)
+            {
+                shifts.Add(s);
+            }
+
+            return shifts;
+        }
     }
 }

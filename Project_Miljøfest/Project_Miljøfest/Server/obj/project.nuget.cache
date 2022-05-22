@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U+PuU0EEjBC58D0tYeJ7dowEWgOAzthUSDCIYdrr9o5JxJnuAZ7Pm13v1s8Wx50oGatr6S6T8gryAcwrFulMsg==",
+  "dgSpecHash": "S71yys3NgLfNeXkN63XUox7ygNswdskqBe29YK4cZQb9UGv9eTwm+D2+JUWqaEZJlnEHshZhJeyfA2HlQaBz0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj",
+  "projectFilePath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Server\\Project_Miljøfest.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

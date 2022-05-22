@@ -1,27 +1,26 @@
 ﻿namespace Project_Miljøfest.Server
 {
-    public class Department
+    public class Assignment
     {
         public int assignmentId;
+        public int coordinatorId {get;set;}
         public string AssignmentName { get; set; }
         public int NoShifts { get; set; }
         public bool IsFull { get; set; }
-        public string? Location { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        
+       
 
-        public Department(int id, string assignmentName, int shifts, string loc, DateTime start, DateTime end)
+        public Assignment(int id, int cooId, string assignmentName, int shifts)
         {
             this.assignmentId = id;
+            this.coordinatorId = cooId;
             this.AssignmentName = assignmentName;
             this.NoShifts = shifts;
             this.IsFull = false;
-            this.Location = loc;
-            this.Start = start; 
-            this.End = end;
+            
         }
 
-        public Department(string assignmentName, string loc, DateTime start, DateTime end)
+        public Assignment(string assignmentName, string loc, DateTime start, DateTime end)
         {
             this.AssignmentName = assignmentName;
             this.Location = loc;

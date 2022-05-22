@@ -1,14 +1,26 @@
 ﻿namespace Project_Miljøfest.Server
 {
-    public class Shift : Department
+    public class Shift 
     {
         public int shiftId;
+        public int AssignmentId { get; set; }
+        public int UserId { get; set; }
+        public string Location { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End     { get; set; }
         public bool IsBooked { get; set; }
 
-        public Shift(int shiftId, string assignmentName, string loc, DateTime start, DateTime end) : base(assignmentName, loc, start, end)
+        public Shift(int shiftId, int assignmentId, int userId, string loc, DateTime start, DateTime end)
         {
             this.shiftId = shiftId;
+            this.AssignmentId = assignmentId;
+            this.UserId = userId;
+            this.Location = loc;
+            this.Start = start;
+            this.End = end;
             this.IsBooked = false;
+        }
+            
         }
 
         
