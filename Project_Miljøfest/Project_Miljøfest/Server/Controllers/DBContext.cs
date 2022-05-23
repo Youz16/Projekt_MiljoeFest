@@ -11,7 +11,7 @@ namespace Project_Miljøfest.Server.Controllers
         //used to access extension configuration
         private readonly IConfiguration? _configuration;
 
-        //create a connection to database, using secure ConnectionString.
+        //create a connection to a database, using secure ConnectionString.
         public DBContext(string input)
         {
             string ConnectionString = _configuration.GetConnectionString(input);

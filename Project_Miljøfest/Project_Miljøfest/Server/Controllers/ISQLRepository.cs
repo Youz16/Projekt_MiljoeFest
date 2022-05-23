@@ -18,5 +18,7 @@ namespace Project_Miljøfest.Server.Controllers
         Task DeleteShift(int shiftId);
 
         Task CreateShift(Shift s);
+
+        Task UpdateShift(int shiftId, Shift s);
     }
 }

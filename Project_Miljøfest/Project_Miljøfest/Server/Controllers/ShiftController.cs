@@ -33,5 +33,11 @@ namespace Project_Miljøfest.Server.Controllers
         {
             await _sqlRepository.CreateShift(s);
         }
+
+        [HttpPost("update")]
+        public async Task UpdateShift(int shiftId, Shift s)
+        {
+            await _sqlRepository.UpdateShift(shiftId, s);
+        }
     }
 }

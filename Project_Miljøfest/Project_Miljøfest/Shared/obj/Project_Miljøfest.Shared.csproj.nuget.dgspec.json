@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {}
+    "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
+    "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
         "projectName": "Project_Miljøfest.Shared",
-        "projectPath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
+        "projectPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\Project_Miljøfest.Shared.csproj",
         "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asger H. Lauridsen\\source\\repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Asger H. Lauridsen\\Source\\Repos\\Projekt_MiljoeFest\\Project_Miljøfest\\Project_Miljøfest\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
