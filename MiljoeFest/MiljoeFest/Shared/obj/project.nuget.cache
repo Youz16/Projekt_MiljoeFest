@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Q9HCKFu5/J/ZGXM/fvd7+EUxx2b2cful9KvLqJhQ5cXSnEGsQB6KUkcrYRnyAzOmC+MIqk3I+CdpvYZRJRGu7w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

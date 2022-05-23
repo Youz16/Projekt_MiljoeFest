@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2e5c205c-5b26-40df-8d33-20f1bfdd3dbc": {
+      "ProjectGuid": "2e5c205c-5b26-40df-8d33-20f1bfdd3dbc",
+      "DisplayName": "MiljoeFest.Server",
+      "ColorIndex": 0
+    },
+    "015a050d-a763-41a8-a6fb-b0a39c595d7e": {
+      "ProjectGuid": "015a050d-a763-41a8-a6fb-b0a39c595d7e",
+      "DisplayName": "MiljoeFest.Client",
+      "ColorIndex": 1
+    },
+    "30e55d07-0a93-4294-9f5c-80dca54183f1": {
+      "ProjectGuid": "30e55d07-0a93-4294-9f5c-80dca54183f1",
+      "DisplayName": "MiljoeFest.Shared",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
