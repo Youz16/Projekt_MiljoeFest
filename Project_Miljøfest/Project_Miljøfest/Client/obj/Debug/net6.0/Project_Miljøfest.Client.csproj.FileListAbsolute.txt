@@ -1,6 +1,0 @@
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.csproj.AssemblyReference.cache
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.AssemblyInfoInputs.cache
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.AssemblyInfo.cs
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.csproj.CoreCompileInputs.cache
-C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Client\obj\Debug\net6.0\Project_Miljøfest.Client.MvcApplicationPartsAssemblyInfo.cache
