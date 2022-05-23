@@ -4,7 +4,7 @@ using MiljoeFest.Shared;
 namespace MiljoeFest.Server.Controllers
 {
     [ApiController]
-    [Route("[shiftController]")]
+    [Route("shiftController")]
     public class ShiftController : Controller
     {
         private readonly ISQLRepository _sqlRepository;

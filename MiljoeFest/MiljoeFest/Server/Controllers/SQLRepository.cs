@@ -7,7 +7,7 @@ namespace MiljoeFest.Server.Controllers
     public class SQLRepository : ISQLRepository
     {
         //create a new instance of DBContext, connecting to "festivalDB"
-        private DBContext DBContext = new("festivalDB");
+        private DBContext DBContext = new("festivalDb");
 
         //Returns a list of users with the specified role
         public async Task<IEnumerable<User>> GetUsers(int role)

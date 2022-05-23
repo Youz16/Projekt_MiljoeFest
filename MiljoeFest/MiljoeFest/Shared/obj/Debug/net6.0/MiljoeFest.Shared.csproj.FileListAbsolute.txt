@@ -10,3 +10,14 @@ C:\Users\Asger H. Lauridsen\source\repos\MiljoeFest\MiljoeFest\Shared\obj\Debug\
 C:\Users\Asger H. Lauridsen\source\repos\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.dll
 C:\Users\Asger H. Lauridsen\source\repos\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll
 C:\Users\Asger H. Lauridsen\source\repos\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.deps.json
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\ref\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfoInputs.cache
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfo.cs
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb

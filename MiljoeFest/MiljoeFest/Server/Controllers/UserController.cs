@@ -4,7 +4,7 @@ using MiljoeFest.Shared;
 namespace MiljoeFest.Server.Controllers
 {
     [ApiController]
-    [Route("[userController]")]
+    [Route("userController")]
     public class UserController : Controller
     {
         private readonly ISQLRepository _sqlRepository;
