@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Dapper;
-using Npgsql;
 using Project_Miljøfest.Shared;
 
 namespace Project_Miljøfest.Server.Controllers
@@ -10,8 +7,12 @@ namespace Project_Miljøfest.Server.Controllers
     [Route("[userController]")]
     public class UserController : Controller
     {
-        private ISQLRepository? _sqlRepository;
+        private readonly ISQLRepository _sqlRepository;
 
+        public UserController(ISQLRepository i)
+        {
+            _sqlRepository = i;
+        }
 
         [HttpPost("create")]
         public async Task CreateUser(User u)

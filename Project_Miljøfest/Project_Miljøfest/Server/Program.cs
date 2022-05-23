@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Project_Miljøfest.Server.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<ISQLRepository>(new SQLRepository());
 
 var app = builder.Build();
 

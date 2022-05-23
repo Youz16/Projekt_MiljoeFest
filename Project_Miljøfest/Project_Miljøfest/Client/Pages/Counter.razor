@@ -10,15 +10,8 @@
 
 
 
-<button class="btn btn-primary" @onclick="">Click me</button>
+
 
 @code {
 
-
-    User u = new(1, "Sven", "5256532", "sven@mail", "Sej til at svejse");
-
-    public async void NewUser(User u)
-    {
-        await Http.PostAsJsonAsync<User>("UserController", u);
-    }
 }

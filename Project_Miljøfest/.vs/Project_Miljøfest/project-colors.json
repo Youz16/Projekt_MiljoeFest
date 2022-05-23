@@ -15,6 +15,11 @@
       "ProjectGuid": "23667673-4c1d-437f-9dfe-6d4bb255de37",
       "DisplayName": "Project_Miljøfest.Shared",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 3

@@ -3,10 +3,12 @@
 namespace Project_Miljøfest.Server.Controllers
 
 {
-    public interface ISQLRepository
+    public interface ISQLRepository //: IServiceProvider
     {
         Task<IEnumerable<User>> GetUsers(int role);
+
         Task CreateUser(User u);
+
         Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked);
 
         Task UpdateUser(int userId, User u);

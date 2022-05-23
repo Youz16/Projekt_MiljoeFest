@@ -7,7 +7,12 @@ namespace Project_Miljøfest.Server.Controllers
     [Route("[shiftController]")]
     public class ShiftController : Controller
     {
-        private ISQLRepository? _sqlRepository;
+        private readonly ISQLRepository _sqlRepository;
+
+        public ShiftController(ISQLRepository i)
+        {
+            _sqlRepository = i;
+        }
         
         [HttpGet("getShifts")]
         public async Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked)

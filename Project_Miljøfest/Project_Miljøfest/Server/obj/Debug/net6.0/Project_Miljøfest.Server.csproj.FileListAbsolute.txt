@@ -1,0 +1,8 @@
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.csproj.AssemblyReference.cache
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.AssemblyInfoInputs.cache
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.AssemblyInfo.cs
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.csproj.CoreCompileInputs.cache
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.RazorAssemblyInfo.cache
+C:\Users\Asger H. Lauridsen\Source\Repos\Projekt_MiljoeFest\Project_Miljøfest\Project_Miljøfest\Server\obj\Debug\net6.0\Project_Miljøfest.Server.RazorAssemblyInfo.cs

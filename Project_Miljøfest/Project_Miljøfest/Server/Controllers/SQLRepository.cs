@@ -1,9 +1,10 @@
 ﻿using Project_Miljøfest.Shared;
 using Dapper;
+
 namespace Project_Miljøfest.Server.Controllers
     
 {
-    public class SQLRepository
+    public class SQLRepository : ISQLRepository
     {
         //create a new instance of DBContext, connecting to "festivalDB"
         private DBContext DBContext = new("festivalDB");
@@ -133,5 +134,9 @@ namespace Project_Miljøfest.Server.Controllers
 
         }
 
+        public object? GetService(Type serviceType)
+        {
+            return this.GetType();
+        }
     }
 }
