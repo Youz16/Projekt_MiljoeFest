@@ -21,3 +21,4 @@ C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\Mi
 C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.dll
 C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll
 C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.AssemblyReference.cache

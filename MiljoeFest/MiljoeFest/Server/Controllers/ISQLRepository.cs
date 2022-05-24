@@ -22,5 +22,7 @@ namespace MiljoeFest.Server.Controllers
         Task CreateShift(Shift s);
 
         Task UpdateShift(int shiftId, Shift s);
+
+        Task CreateAssignment(Assignment a, int coId);
     }
 }

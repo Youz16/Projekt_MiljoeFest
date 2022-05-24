@@ -4,11 +4,11 @@
 
 <PageTitle>Weather forecast</PageTitle>
 
-<h1>Weather forecast</h1>
+<h1>Coordinators</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (users == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -17,20 +17,28 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Skills</th>
+                <th>Birthday</th>
+                <th>First aid</th>
+                
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var user in users)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@user.userId</td>
+                    
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>@user.Phone</td>
+                    <td>@user.Skills</td>
+                    <td>@user.BirthDay</td>
+                    <td>@user.FirstAid</td>
                 </tr>
             }
         </tbody>
@@ -38,10 +46,13 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
-
+    private List<User> users = new();
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        DateTime n = new(2000, 5, 19);
+        User u = new(1, "mad", "frank", "mail", "205665886", "sej til at spise", n, false);
+
+        await Http.("userController/create", u);
+
     }
 }

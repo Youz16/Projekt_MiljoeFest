@@ -13,6 +13,15 @@ namespace MiljoeFest.Server.Controllers
         {
             _sqlRepository = i;
         }
+        [HttpGet("getUsers")]
+        public async Task<IEnumerable<User>> GetUsers(int role)
+        {
+            
+           var list = await _sqlRepository.GetUsers(role);
+
+            return list;
+            
+        }
 
         [HttpPost("create")]
         public async Task CreateUser(User u)

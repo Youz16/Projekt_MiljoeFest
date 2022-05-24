@@ -25,11 +25,13 @@ namespace MiljoeFest.Server.Controllers
             //@ - tagged attributes are later specified in queryArguments
             string commandText =
                 $@"(UPDATE users
-                    SET name = @uName, phone = @uPhone, email = @uEmail, birth_day = @uBirthDay, skills = @uSkills, first_aid = @uFirstAid
+                    SET role_id = @uRole, department = @uDepartment, name = @uName, phone = @uPhone, email = @uEmail, birth_day = @uBirthDay, skills = @uSkills, first_aid = @uFirstAid
                     WHERE user_id = @uId";
 
             var queryArguments = new
             {
+                uRole = u.Role,
+                uDepartment = u.Department,
                 uName = u.Name,
                 uPhone = u.Phone,
                 uEmail = u.Email,
@@ -48,11 +50,12 @@ namespace MiljoeFest.Server.Controllers
         public async Task CreateUser(User u)
         {
             //@ - tagged attributes are specified in queryArguments
-            string commandText = $"INSERT INTO users (role_id, name, email, phone, skills) VALUES (@uRole, @uName, @uEmail, @uPhone, @uSkills)";
+            string commandText = $"INSERT INTO users (role_id, department, name, email, phone, skills) VALUES (@uRole, @uDepartment, @uName, @uEmail, @uPhone, @uSkills)";
 
             var queryArguments = new
             {
                 uRole = u.Role,
+                uDepartment = u.Department,
                 uName = u.Name,
                 uEmail = u.Email,
                 uEhone = u.Phone,
@@ -131,7 +134,30 @@ namespace MiljoeFest.Server.Controllers
 
             await DBContext.connection.ExecuteAsync(commandText, queryArguments);
 
+            
+        }
 
+        public async Task CreateAssignment(Assignment a, int coId)
+        {
+            string commandText =
+                $@"(INSERT INTO assignments(user_id, assignment_name, department, start, end)
+                    VALUES(@cId, @aName, @aDep, @aStart, @aEnd)";
+
+            var queryArguments = new
+            {
+                cId = coId,
+                aName = a.AssignmentName,
+                aDep = a.Department,
+                aStart = a.Start,
+                aEnd = a.End
+            };
+
+            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+        }
+
+        public async Task<IEnumerable<Assignment>> GetAssignments(string department)
+        {
+            await 
         }
 
         public object? GetService(Type serviceType)
