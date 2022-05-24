@@ -4,7 +4,7 @@
     {
         // properties
         public int userId;
-        public int Role { get; set; }
+        public int RoleId { get; set; }
        
         public string Department { get; set; }
         public string Name { get; set; }
@@ -16,11 +16,14 @@
 
 
         public DateTime DateReg = DateTime.Now;
+        public User()
+        {
 
+        }
         //construtor
         public User(int role, string department, string name, string email, string phone, string skills, DateTime birthDay, bool firstAid)
         {
-            this.Role = role;
+            this.RoleId = role;
             this.Department = department;
             this.Name = name;
             this.Email = email;

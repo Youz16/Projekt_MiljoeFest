@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiljoeFest.Shared;
+using Dapper;
 
 namespace MiljoeFest.Server.Controllers
 {
@@ -9,18 +10,21 @@ namespace MiljoeFest.Server.Controllers
     {
         private readonly ISQLRepository _sqlRepository;
 
+        private DBContext DBContext = new();
+
         public UserController(ISQLRepository i)
         {
             _sqlRepository = i;
         }
+
         [HttpGet("getUsers")]
-        public async Task<IEnumerable<User>> GetUsers(int role)
+        public async Task<IEnumerable<User>> GetUsers([FromQuery] int role)
+
         {
-            
-           var list = await _sqlRepository.GetUsers(role);
+            var list = await _sqlRepository.GetUsers(role);
+
 
             return list;
-            
         }
 
         [HttpPost("create")]

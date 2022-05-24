@@ -49,10 +49,14 @@ else
     private List<User> users = new();
     protected override async Task OnInitializedAsync()
     {
-        DateTime n = new(2000, 5, 19);
-        User u = new(1, "mad", "frank", "mail", "205665886", "sej til at spise", n, false);
+        //DateTime n = new(2000, 5, 19);
+        //User u = new(1, "mad", "frank", "mail", "205665886", "sej til at spise", n, false);
 
-        await Http.("userController/create", u);
+
+
+        users = await  Http.GetFromJsonAsync<List<User>>("userController/getUsers?role=1");
+       
+       
 
     }
 }

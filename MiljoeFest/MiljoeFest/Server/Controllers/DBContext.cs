@@ -12,10 +12,10 @@ namespace MiljoeFest.Server.Controllers
         
 
         //create a connection to a database, using secure ConnectionString.
-        public DBContext(string input)
+        public DBContext()
         {
-           
-            connection = new NpgsqlConnection("Server=miljofest-db.postgres.database.azure.com;Database=MiljofestDB;Port=5432;User Id=Postgres;Password=dbAdmin1!;Ssl Mode=VerifyFull;");
+            
+            connection = new NpgsqlConnection("UserID = Postgres; Password = dbAdmin1!; Host = miljofest-db.postgres.database.azure.com; Port = 5432; Database = MiljofestDB;");
             connection.Open();
         }
     }

@@ -7,10 +7,10 @@ namespace MiljoeFest.Server.Controllers
     public class SQLRepository : ISQLRepository
     {
         //create a new instance of DBContext, connecting to "festivalDB"
-        private DBContext DBContext = new("festivalDb");
+        private DBContext DBContext = new();
 
         //Returns a list of users with the specified role
-        public async Task<IEnumerable<User>> GetUsers(int role)
+        /*public async Task<IEnumerable<User>> GetUsers(int role)
         {
             //@role is a placeholder, later filled in at queryArguments
             string commandText = $"(SELECT * FROM users WHERE role_id = @uRole";
@@ -19,6 +19,7 @@ namespace MiljoeFest.Server.Controllers
             return users;
 
         }
+        */
         //update a user identified by userId, changes are contained in a user object called u
         public async Task UpdateUser(int userId, User u)
         {
@@ -30,7 +31,7 @@ namespace MiljoeFest.Server.Controllers
 
             var queryArguments = new
             {
-                uRole = u.Role,
+                uRole = u.RoleId,
                 uDepartment = u.Department,
                 uName = u.Name,
                 uPhone = u.Phone,
@@ -47,19 +48,42 @@ namespace MiljoeFest.Server.Controllers
 
         }
 
+        
+        public async Task<IEnumerable<User>> GetUsers( int role)
+        {
+
+            Console.WriteLine("getUsers");
+            //@role is a placeholder, later filled in at queryArguments
+            string commandText = $"SELECT * FROM users WHERE role_id = @uRole";
+            IEnumerable<User> users = null;
+            var parameters = new DynamicParameters();
+            parameters.Add("uRole", role);
+            try
+            {
+                users = await DBContext.connection.QueryAsync<User>(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return users;
+        }
+
         public async Task CreateUser(User u)
         {
             //@ - tagged attributes are specified in queryArguments
-            string commandText = $"INSERT INTO users (role_id, department, name, email, phone, skills) VALUES (@uRole, @uDepartment, @uName, @uEmail, @uPhone, @uSkills)";
+            string commandText = $"INSERT INTO users (role_id, department, name, email, phone, birth_day, skills, first_aid) VALUES (@uRole, @uDepartment, @uName, @uEmail, @uPhone,@uBirthDay, @uSkill, @uFirstAid)";
 
             var queryArguments = new
             {
-                uRole = u.Role,
+                uRole = u.RoleId,
                 uDepartment = u.Department,
                 uName = u.Name,
                 uEmail = u.Email,
                 uEhone = u.Phone,
-                uSkills = u.Skills
+                uBirthDay = u.BirthDay,
+                uSkills = u.Skills,
+                uFirstAid = u.FirstAid
             };
 
             await DBContext.connection.ExecuteAsync(commandText, queryArguments);
@@ -155,10 +179,7 @@ namespace MiljoeFest.Server.Controllers
             await DBContext.connection.ExecuteAsync(commandText, queryArguments);
         }
 
-        public async Task<IEnumerable<Assignment>> GetAssignments(string department)
-        {
-            await 
-        }
+        
 
         public object? GetService(Type serviceType)
         {
