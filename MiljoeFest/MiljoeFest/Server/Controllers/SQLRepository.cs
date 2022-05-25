@@ -47,11 +47,11 @@ namespace MiljoeFest.Server.Controllers
 
         }
 
-        
-        public async Task<IEnumerable<User>> GetUsers( int role)
+
+        public async Task<IEnumerable<User>> GetUsers(int role)
         {
 
-            
+
             //@role is a placeholder, later filled in at queryArguments
             string commandText = $@"SELECT user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
                                     FROM users WHERE role_id = @uRole";
@@ -77,7 +77,7 @@ namespace MiljoeFest.Server.Controllers
             parameters.Add("uId", userId);
             try
             {
-                
+
                 u = await DBContext.connection.QueryAsync<User>(commandText, parameters);
             }
             catch (Exception ex)
@@ -106,7 +106,7 @@ namespace MiljoeFest.Server.Controllers
             {
                 await DBContext.connection.ExecuteAsync(commandText, parameters);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -125,14 +125,14 @@ namespace MiljoeFest.Server.Controllers
         {
             string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked FROM shifts WHERE assignment_id = @asId AND isBooked = @booked";
             var parameters = new DynamicParameters();
-            IEnumerable<Shift>? shifts = null; 
+            IEnumerable<Shift>? shifts = null;
             parameters.Add("asId", assignmentId);
             parameters.Add("booked", booked);
             try
             {
                 shifts = await DBContext.connection.QueryAsync<Shift>(commandText, parameters);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -147,7 +147,7 @@ namespace MiljoeFest.Server.Controllers
             parameters.Add("uId", userId);
             try
             {
-                 shifts = await DBContext.connection.QueryAsync<Shift>(commandText, parameters);
+                shifts = await DBContext.connection.QueryAsync<Shift>(commandText, parameters);
             }
             catch (Exception ex)
             {
@@ -228,11 +228,11 @@ namespace MiljoeFest.Server.Controllers
 
             var parameters = new DynamicParameters();
 
-                parameters.Add("coId", coId);
-                parameters.Add("aName", a.AssignmentName);
-                parameters.Add("aDep", a.Department);
-                parameters.Add("aStrart", a.Start);
-                parameters.Add("aEnd", a.End);
+            parameters.Add("coId", coId);
+            parameters.Add("aName", a.AssignmentName);
+            parameters.Add("aDep", a.Department);
+            parameters.Add("aStrart", a.Start);
+            parameters.Add("aEnd", a.End);
 
             try
             {
@@ -250,7 +250,7 @@ namespace MiljoeFest.Server.Controllers
                 $@"SELECT user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end
                    FROM assingments ORDER BY user_Id";
 
-            IEnumerable<Assignment>? assignments = null; 
+            IEnumerable<Assignment>? assignments = null;
             try
             {
                 assignments = await DBContext.connection.QueryAsync<Assignment>(commandText);
@@ -261,12 +261,12 @@ namespace MiljoeFest.Server.Controllers
             }
 
             return assignments;
-        }        
+        }
 
         public async Task DeleteAssignment(int assignmentId)
         {
             string commandText =
-                $@"DELETE FROM assignments WHERE shift_id = @aId";
+                $@"DELETE FROM assignments WHERE assignment_id = @aId";
             var parameters = new DynamicParameters();
             parameters.Add("aId", assignmentId);
             try
@@ -285,12 +285,12 @@ namespace MiljoeFest.Server.Controllers
             string commandText =
                 $@"UPDATE assignments 
                    SET user_id = @coId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd";
-                   var parameters = new DynamicParameters();
+            var parameters = new DynamicParameters();
             parameters.Add("coId", a.CoordinatorId);
             parameters.Add("aName", a.AssignmentName);
             parameters.Add("aDep", a.Department);
             parameters.Add("aStart", a.Start);
-            parameters.Add("aEnd",a.End);
+            parameters.Add("aEnd", a.End);
 
             try
             {

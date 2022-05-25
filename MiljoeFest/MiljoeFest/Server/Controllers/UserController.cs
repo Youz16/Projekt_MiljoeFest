@@ -38,7 +38,7 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpPost("create")]
-        public async Task CreateUser( User u)
+        public async Task CreateUser(User u)
         {
             await _sqlRepository.CreateUser(u);
         }
