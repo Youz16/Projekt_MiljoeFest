@@ -27,19 +27,29 @@ namespace MiljoeFest.Server.Controllers
             return list;
         }
 
+        [HttpGet("getUser")]
+        public async Task<IEnumerable<User>> GetUser([FromQuery] int userId)
+
+        {
+            var user = await _sqlRepository.GetUser(userId);
+
+
+            return user;
+        }
+
         [HttpPost("create")]
-        public async Task CreateUser(User u)
+        public async Task CreateUser( User u)
         {
             await _sqlRepository.CreateUser(u);
         }
 
-        [HttpPost("update")]
+        [HttpPut("update")]
         public async Task UpdateUser(int userId, User u)
         {
             await _sqlRepository.UpdateUser(userId, u);
         }
 
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public async Task DeleteUser(int userId)
         {
             await _sqlRepository.DeleteUser(userId);

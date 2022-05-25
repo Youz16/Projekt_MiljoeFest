@@ -25,25 +25,24 @@ namespace MiljoeFest.Server.Controllers
         {
             //@ - tagged attributes are later specified in queryArguments
             string commandText =
-                $@"(UPDATE users
-                    SET role_id = @uRole, department = @uDepartment, name = @uName, phone = @uPhone, email = @uEmail, birth_day = @uBirthDay, skills = @uSkills, first_aid = @uFirstAid
+                $@"UPDATE users
+                    SET role_id = @uRole, department = @uDepartment, name = @uName, phone = @uPhone, email = @uEmail, birthday = @uBirthDay, skills = @uSkills, first_aid = @uFirstAid
                     WHERE user_id = @uId";
+            var parameters = new DynamicParameters();
 
-            var queryArguments = new
-            {
-                uRole = u.RoleId,
-                uDepartment = u.Department,
-                uName = u.Name,
-                uPhone = u.Phone,
-                uEmail = u.Email,
-                uBirthDay = u.BirthDay,
-                uSkills = u.Skills,
-                uFirstAid = u.FirstAid,
-                uId = userId
+            parameters.Add("uRole", u.RoleId);
+            parameters.Add("uDepartment", u.Department);
+            parameters.Add("uName", u.Name);
+            parameters.Add("uPhone", u.Phone);
+            parameters.Add("uEmail", u.Email);
+            parameters.Add("uBirthDay", u.BirthDay);
+            parameters.Add("uSkills", u.Skills);
+            parameters.Add("uFirstAid", u.FirstAid);
+            parameters.Add("uId", userId);
 
-            };
 
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+
+            await DBContext.connection.ExecuteAsync(commandText, parameters);
 
 
         }
@@ -52,10 +51,11 @@ namespace MiljoeFest.Server.Controllers
         public async Task<IEnumerable<User>> GetUsers( int role)
         {
 
-            Console.WriteLine("getUsers");
+            
             //@role is a placeholder, later filled in at queryArguments
-            string commandText = $"SELECT * FROM users WHERE role_id = @uRole";
-            IEnumerable<User> users = null;
+            string commandText = $@"SELECT user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
+                                    FROM users WHERE role_id = @uRole";
+            IEnumerable<User>? users = null;
             var parameters = new DynamicParameters();
             parameters.Add("uRole", role);
             try
@@ -69,71 +69,127 @@ namespace MiljoeFest.Server.Controllers
             return users;
         }
 
+        public async Task<IEnumerable<User>> GetUser(int userId)
+        {
+            string commandText = $"SELECT * FROM users WHERE user_id = @uId";
+            IEnumerable<User>? u = null;
+            var parameters = new DynamicParameters();
+            parameters.Add("uId", userId);
+            try
+            {
+                
+                u = await DBContext.connection.QueryAsync<User>(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return u;
+        }
+
         public async Task CreateUser(User u)
         {
             //@ - tagged attributes are specified in queryArguments
-            string commandText = $"INSERT INTO users (role_id, department, name, email, phone, birth_day, skills, first_aid) VALUES (@uRole, @uDepartment, @uName, @uEmail, @uPhone,@uBirthDay, @uSkill, @uFirstAid)";
+            string commandText = $"INSERT INTO users (role_id, department, name, email, phone, birthday, skills, first_aid) VALUES (@uRole, @uDepartment, @uName, @uEmail, @uPhone,@uBirthDay, @uSkills, @uFirstAid)";
 
-            var queryArguments = new
+            var parameters = new DynamicParameters();
+
+            parameters.Add("uRole", u.RoleId);
+            parameters.Add("uDepartment", u.Department);
+            parameters.Add("uName", u.Name);
+            parameters.Add("uEmail", u.Email);
+            parameters.Add("uPhone", u.Phone);
+            parameters.Add("uBirthDay", u.BirthDay);
+            parameters.Add("uSkills", u.Skills);
+            parameters.Add("uFirstAid", u.FirstAid);
+            try
             {
-                uRole = u.RoleId,
-                uDepartment = u.Department,
-                uName = u.Name,
-                uEmail = u.Email,
-                uEhone = u.Phone,
-                uBirthDay = u.BirthDay,
-                uSkills = u.Skills,
-                uFirstAid = u.FirstAid
-            };
-
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public async Task DeleteUser(int userId)
         {
             string commandText = $"DELETE FROM users WHERE user_id = @uId";
-            var queryArguments = new { uId = userId };
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+            var parameters = new DynamicParameters();
+            parameters.Add("uId", userId);
+
+            await DBContext.connection.ExecuteAsync(commandText, parameters);
         }
 
         public async Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked)
         {
-            string commandText = $"SELECT * FROM shifts WHERE assignment_id = @asId AND booked = @isBooked";
-            var queryArguments = new { asId = assignmentId, isBooked = booked };
-            var shifts = await DBContext.connection.QueryAsync<Shift>(commandText, queryArguments);
+            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked FROM shifts WHERE assignment_id = @asId AND isBooked = @booked";
+            var parameters = new DynamicParameters();
+            IEnumerable<Shift>? shifts = null; 
+            parameters.Add("asId", assignmentId);
+            parameters.Add("booked", booked);
+            try
+            {
+                shifts = await DBContext.connection.QueryAsync<Shift>(commandText, parameters);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return shifts;
         }
 
         public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
         {
-            string commandText = $"SELECT * FROM shifts WHERE user_id = @uId";
-            var queryArguments = new { uId = userId };
-            var shifts = await DBContext.connection.QueryAsync<Shift>(commandText, queryArguments);
+            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked FROM shifts WHERE user_id = @uId";
+            var parameters = new DynamicParameters();
+            IEnumerable<Shift>? shifts = null;
+            parameters.Add("uId", userId);
+            try
+            {
+                 shifts = await DBContext.connection.QueryAsync<Shift>(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return shifts;
         }
 
         public async Task DeleteShift(int shiftId)
         {
             string commandText = $"DELETE FROM shifts WHERE shift_id = @sId";
-            var queryArguments = new { sId = shiftId };
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+            var parameters = new DynamicParameters();
+            parameters.Add("sId", shiftId);
+            try
+            {
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public async Task CreateShift(Shift s)
         {
-            string commandText = $"INSERT INTO shifts (shift_id, assignment_id, user_id, location, start, end, is_booked) VALUES (@sID, @AsId, @uId, @loc, @sStart, @sEnd, @isBooked)";
-            var queryArguments = new
+            string commandText = $"INSERT INTO shifts (shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as start, end_time as end, isBooked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
+            var parameters = new DynamicParameters();
+            parameters.Add("sId", s.ShiftId);
+            parameters.Add("asId", s.AssignmentId);
+            parameters.Add("uId", s.UserId);
+            parameters.Add("loc", s.Location);
+            parameters.Add("sStart", s.Start);
+            parameters.Add("sEnd", s.End);
+            parameters.Add("booked", s.IsBooked);
+            try
             {
-                sId = s.shiftId,
-                asId = s.AssignmentId,
-                uId = s.UserId,
-                loc = s.Location,
-                sStart = s.Start,
-                sEnd = s.End,
-                isBooked = s.IsBooked
-            };
-
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public async Task UpdateShift(int shiftId, Shift s)
@@ -141,45 +197,112 @@ namespace MiljoeFest.Server.Controllers
             //@ - tagged attributes are later specified in queryArguments
             string commandText =
                 $@"(UPDATE shifts
-                    SET assignment_id = @asId, user_id = @uId, location = @loc, start = @sStart, end = @sEnd, booked = @isBooked
+                    SET assignment_id = @asId, user_id = @uId, location = @loc, start_time = @sStart, end_time = @sEnd, isBooked = @booked
                     Where shift_id = @sId";
+            var parameters = new DynamicParameters();
 
-            var queryArguments = new
+            parameters.Add("asId", s.AssignmentId);
+            parameters.Add("uId", s.UserId);
+            parameters.Add("lock", s.Location);
+            parameters.Add("sStart", s.Start);
+            parameters.Add("sEnd", s.End);
+            parameters.Add("book", s.IsBooked);
+            parameters.Add("sId", s.ShiftId);
+
+            try
             {
-                asId = s.AssignmentId,
-                uId = s.UserId,
-                loc = s.Location,
-                start = s.Start,
-                end = s.End,
-                isBooked = s.IsBooked,
-                sId = shiftId
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            };
-
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
-
-            
         }
 
         public async Task CreateAssignment(Assignment a, int coId)
         {
             string commandText =
-                $@"(INSERT INTO assignments(user_id, assignment_name, department, start, end)
+                $@"INSERT INTO assignments(user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end)
                     VALUES(@cId, @aName, @aDep, @aStart, @aEnd)";
 
-            var queryArguments = new
-            {
-                cId = coId,
-                aName = a.AssignmentName,
-                aDep = a.Department,
-                aStart = a.Start,
-                aEnd = a.End
-            };
+            var parameters = new DynamicParameters();
 
-            await DBContext.connection.ExecuteAsync(commandText, queryArguments);
+                parameters.Add("coId", coId);
+                parameters.Add("aName", a.AssignmentName);
+                parameters.Add("aDep", a.Department);
+                parameters.Add("aStrart", a.Start);
+                parameters.Add("aEnd", a.End);
+
+            try
+            {
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        
+        public async Task<IEnumerable<Assignment>> GetAssignments()
+        {
+            string commandText =
+                $@"SELECT user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end
+                   FROM assingments ORDER BY user_Id";
+
+            IEnumerable<Assignment>? assignments = null; 
+            try
+            {
+                assignments = await DBContext.connection.QueryAsync<Assignment>(commandText);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return assignments;
+        }        
+
+        public async Task DeleteAssignment(int assignmentId)
+        {
+            string commandText =
+                $@"DELETE FROM assignments WHERE shift_id = @aId";
+            var parameters = new DynamicParameters();
+            parameters.Add("aId", assignmentId);
+            try
+            {
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        public async Task UpdateAssignment(int assignmentId, Assignment a)
+        {
+            string commandText =
+                $@"UPDATE assignments 
+                   SET user_id = @coId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd";
+                   var parameters = new DynamicParameters();
+            parameters.Add("coId", a.CoordinatorId);
+            parameters.Add("aName", a.AssignmentName);
+            parameters.Add("aDep", a.Department);
+            parameters.Add("aStart", a.Start);
+            parameters.Add("aEnd",a.End);
+
+            try
+            {
+                await DBContext.connection.ExecuteAsync(commandText, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+        }
 
         public object? GetService(Type serviceType)
         {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C1MeO0zvtnh8fP6NayBqdknkjqVdYMR5nN/qkEz2w1CGxGcZoLL86DZK1t+9g7/jr0D7lNByfzuh/kABEmtnWQ==",
+  "dgSpecHash": "1ASUDQaPFV+QPzKHJDY6hmUuaqUNmRfduuOE/8Yoz8OaMEAlvuO7YWu/ge5UurS/zQdwBAJ+heCgY5C+TV8vGQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
   "expectedPackageFiles": [
@@ -35,7 +35,7 @@
     "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.1.nupkg.sha512"
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.5\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.5.nupkg.sha512"
   ],
   "logs": []
 }

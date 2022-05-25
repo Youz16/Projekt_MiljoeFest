@@ -27,7 +27,7 @@ namespace MiljoeFest.Server.Controllers
             return shifts;
         }
 
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public async Task DeleteShift(int shiftId)
         {
             await _sqlRepository.DeleteUser(shiftId);
@@ -39,7 +39,7 @@ namespace MiljoeFest.Server.Controllers
             await _sqlRepository.CreateShift(s);
         }
 
-        [HttpPost("update")]
+        [HttpPut("update")]
         public async Task UpdateShift(int shiftId, Shift s)
         {
             await _sqlRepository.UpdateShift(shiftId, s);

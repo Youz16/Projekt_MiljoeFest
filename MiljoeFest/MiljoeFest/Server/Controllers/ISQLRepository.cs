@@ -3,9 +3,11 @@
 namespace MiljoeFest.Server.Controllers
 
 {
-    public interface ISQLRepository //: IServiceProvider
+    public interface ISQLRepository 
     {
         Task<IEnumerable<User>> GetUsers(int role);
+
+        Task<IEnumerable<User>> GetUser(int userId);
 
         Task CreateUser(User u);
 
@@ -24,5 +26,12 @@ namespace MiljoeFest.Server.Controllers
         Task UpdateShift(int shiftId, Shift s);
 
         Task CreateAssignment(Assignment a, int coId);
+
+        Task<IEnumerable<Assignment>> GetAssignments();
+
+        Task DeleteAssignment(int assignmentId);
+        Task UpdateAssignment(int assignmentId, Assignment a);
+
+
     }
 }

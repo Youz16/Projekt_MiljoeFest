@@ -2,7 +2,7 @@
 {
     public class Shift
     {
-        public int shiftId;
+        public int ShiftId { get; set; }
         public int AssignmentId { get; set; }
         public int UserId { get; set; }
         public string Location { get; set; }
@@ -12,7 +12,7 @@
 
         public Shift(int shiftId, int assignmentId, int userId, string loc, DateTime start, DateTime end)
         {
-            this.shiftId = shiftId;
+            this.ShiftId = shiftId;
             this.AssignmentId = assignmentId;
             this.UserId = userId;
             this.Location = loc;
