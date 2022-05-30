@@ -123,10 +123,10 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task<IEnumerable<Shift>> GetShifts(bool booked)
         {
-            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked" +
-                $" FROM shifts" +
-                $" WHERE isBooked = @booked" +
-                $"GROUP BY assignment_id";
+            string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, is_booked as IsBooked
+                FROM shifts
+                WHERE is_booked = @booked
+                ORDER BY assignment_id";
             var parameters = new DynamicParameters();
             IEnumerable<Shift>? shifts = null;
             
@@ -144,9 +144,9 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
         {
-            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked" +
-                $" FROM shifts" +
-                $" WHERE user_id = @uId";
+            string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, is_booked as IsBooked
+                 FROM shifts
+                 WHERE user_id = @uId";
             var parameters = new DynamicParameters();
             IEnumerable<Shift>? shifts = null;
             parameters.Add("uId", userId);
@@ -178,7 +178,7 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task CreateShift(Shift s)
         {
-            string commandText = $"INSERT INTO shifts (shift_id, assignment_id, user_id, location, start_time, end_time, isBooked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
+            string commandText = $"INSERT INTO shifts (shift_id, assignment_id, user_id, location, start_time, end_time, is_booked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
             var parameters = new DynamicParameters();
             parameters.Add("sId", s.ShiftId);
             parameters.Add("asId", s.AssignmentId);
@@ -201,8 +201,8 @@ namespace MiljoeFest.Server.Controllers
         {
             //@ - tagged attributes are later specified in queryArguments
             string commandText =
-                $@"(UPDATE shifts
-                    SET assignment_id = @asId, user_id = @uId, location = @loc, start_time = @sStart, end_time = @sEnd, isBooked = @booked
+                $@"UPDATE shifts
+                    SET shift_id = sId, shiftassignment_id = @asId, user_id = @uId, location = @loc, start_time = @sStart, end_time = @sEnd, is_booked = @booked
                     Where shift_id = @sId";
             var parameters = new DynamicParameters();
 

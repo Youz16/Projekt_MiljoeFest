@@ -97,7 +97,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getUserShifts?userId0{StateContainer.UserId}");
+        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getUserShifts?userId={StateContainer.UserId}");
     }
 
     public async Task delete()

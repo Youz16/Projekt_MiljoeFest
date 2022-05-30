@@ -15,7 +15,7 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpGet("getShifts")]
-        public async Task<IEnumerable<Shift>> GetShifts( bool booked)
+        public async Task<IEnumerable<Shift>> GetShifts([FromQuery] bool booked)
         {
           
             var list = await _sqlRepository.GetShifts(booked);

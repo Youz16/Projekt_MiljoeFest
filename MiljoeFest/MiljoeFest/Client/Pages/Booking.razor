@@ -42,18 +42,25 @@
 
 @code {
     List<Shift> shifts = new();
-    private string bookStatus = "Book";
+
 
     protected override async Task OnInitializedAsync()
     {
-        shifts = await Http.GetFromJsonAsync<List<Shift>>("shiftController/getShifts?booked=false");
+        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getShifts?booked={false}");
     }
 
     public async Task BookShift(Shift s)
     {
-        s.IsBooked = true;
-        s.UserId = StateContainer.UserId;
-        await Http.PutAsJsonAsync($"shiftController/update?shiftId = {s.ShiftId}", s);
-        
+        Shift shift = new();
+        shift.ShiftId = s.ShiftId;
+        shift.AssignmentId = s.AssignmentId;
+        shift.UserId = StateContainer.UserId;
+        shift.Location = s.Location;
+        shift.Start = s.Start;
+        shift.End = s.End;
+        shift.IsBooked = true;
+
+        await Http.PutAsJsonAsync($"shiftController/update?shiftId = {shift.ShiftId}", shift);
+        shifts.Remove(s);
     }
 }
