@@ -34,3 +34,15 @@ C:\Users\Yousef\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debu
 C:\Users\Yousef\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\refint\MiljoeFest.Shared.dll
 C:\Users\Yousef\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
 C:\Users\Yousef\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.deps.json
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.AssemblyReference.cache
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfoInputs.cache
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfo.cs
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.CoreCompileInputs.cache
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\refint\MiljoeFest.Shared.dll
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\PCUser\Desktop\Projekt_MiljoeFest\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll

@@ -1,0 +1,55 @@
+﻿@page "/AssignmentCreation"
+@using MiljoeFest.Shared
+@inject HttpClient Http
+
+<PageTitle>Miljø Fest | Opgaveoprettelse</PageTitle>
+<h1>Opgaveoprettelse</h1>
+
+<p>Indtast venligst de krævede oplysninger.</p>
+
+<!--Oprettelse af form som følger modellen for obj "u"-->
+<EditForm Model="@a" OnValidSubmit="createAssignment">
+    
+    <label>Brugerid:</label>
+    <div>
+        <InputNumber @bind-Value="@a.UserId" placeholder="ID"/>
+    </div>
+    
+    <label>Opgavenavn:</label>
+    <div>
+        <InputText @bind-Value="@a.AssignmentName" placeholder="Navn"/>
+    </div>
+
+    <label>Afdeling:</label>
+    <div>
+        <InputText @bind-Value="@a.Department" placeholder="Afdeling"/>
+    </div>
+
+    <label>Start- og slutdato:</label>
+    <div>
+        <InputDate @bind-Value="@a.Start" min="1960-01-01"/>
+    </div>
+    <div>
+        <InputDate @bind-Value="@a.End" min="1960-01-01"/>
+    </div>
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @ButtonText
+    </button>
+</EditForm>
+
+
+
+@code {
+    public string ButtonText = "Opret opgave";
+
+    // Oprettelse af ny instans af User ved navn "a"
+    Assignment a = new();
+
+    public async Task createAssignment()
+    {
+        // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
+    }
+}

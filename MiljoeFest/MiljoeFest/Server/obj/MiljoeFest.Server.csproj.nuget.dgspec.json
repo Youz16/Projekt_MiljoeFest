@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj": {}
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
         "projectName": "MiljoeFest.Client",
-        "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
-        "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\obj\\",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
-                "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
               }
             }
           }
@@ -75,7 +75,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.3, 6.0.3]"
+              "version": "[6.0.5, 6.0.5]"
             }
           ],
           "frameworkReferences": {
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -92,17 +92,17 @@
         }
       }
     },
-    "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj": {
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
         "projectName": "MiljoeFest.Server",
-        "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
-        "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\obj\\",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,11 +116,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
-                "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj"
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj"
               },
-              "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
-                "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
+              "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+                "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
               }
             }
           }
@@ -166,21 +166,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
         "projectName": "MiljoeFest.Shared",
-        "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
-        "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -230,7 +230,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

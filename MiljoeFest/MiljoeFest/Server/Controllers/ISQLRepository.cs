@@ -25,7 +25,7 @@ namespace MiljoeFest.Server.Controllers
 
         Task UpdateShift(int shiftId, Shift s);
 
-        Task CreateAssignment(Assignment a, int coId);
+        Task CreateAssignment(Assignment a);
 
         Task<IEnumerable<Assignment>> GetAssignments();
 

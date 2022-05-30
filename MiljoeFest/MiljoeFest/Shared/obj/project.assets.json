@@ -112,19 +112,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yousef\\.nuget\\packages\\": {}
+    "C:\\Users\\PCUser\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
       "projectName": "MiljoeFest.Shared",
-      "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
-      "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
+      "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+      "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -174,7 +174,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

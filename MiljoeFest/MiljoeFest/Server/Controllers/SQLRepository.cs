@@ -220,18 +220,18 @@ namespace MiljoeFest.Server.Controllers
 
         }
 
-        public async Task CreateAssignment(Assignment a, int coId)
+        public async Task CreateAssignment(Assignment a)
         {
             string commandText =
                 $@"INSERT INTO assignments(user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end)
-                    VALUES(@cId, @aName, @aDep, @aStart, @aEnd)";
+                    VALUES(@UserId, @aName, @aDep, @aStart, @aEnd)";
 
             var parameters = new DynamicParameters();
 
-            parameters.Add("coId", coId);
+            parameters.Add("UserId", a.UserId);
             parameters.Add("aName", a.AssignmentName);
             parameters.Add("aDep", a.Department);
-            parameters.Add("aStrart", a.Start);
+            parameters.Add("aStart", a.Start);
             parameters.Add("aEnd", a.End);
 
             try
@@ -284,9 +284,9 @@ namespace MiljoeFest.Server.Controllers
         {
             string commandText =
                 $@"UPDATE assignments 
-                   SET user_id = @coId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd";
+                   SET user_id = @UserId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd";
             var parameters = new DynamicParameters();
-            parameters.Add("coId", a.CoordinatorId);
+            parameters.Add("UserId", a.UserId);
             parameters.Add("aName", a.AssignmentName);
             parameters.Add("aDep", a.Department);
             parameters.Add("aStart", a.Start);

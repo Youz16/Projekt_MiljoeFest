@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MiljoeFest.Shared;
 
 namespace MiljoeFest.Server.Controllers
 {
@@ -14,9 +15,9 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpPost("createAssignment")]
-       public async Task CreateAssignment(Assignment a, int coId)
+        public async Task CreateAssignment(Assignment a)
         {
-            await _sqlRepository.CreateAssignment(a, coId);
+            await _sqlRepository.CreateAssignment(a);
         }
 
         [HttpGet("getAssignments")]
