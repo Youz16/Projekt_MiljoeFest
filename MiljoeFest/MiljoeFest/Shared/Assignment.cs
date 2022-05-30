@@ -2,14 +2,14 @@
 {
     public class Assignment
     {
-        public int assignmentId { get; set; }
-        public int UserId { get; set; }
-        public string AssignmentName { get; set; }
-        public string Department { get; set; }
+        public int? AssignmentId { get; set; }
+        public int? UserId { get; set; }
+        public string? AssignmentName { get; set; }
+        public string? Department { get; set; }
 
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-
+        public DateTime? Start { get; set; }
+        public DateTime? End { get; set; }
+        public List<Shift> shifts = new();
 
         public Assignment()
         {
@@ -18,7 +18,7 @@
 
         public Assignment(int id, int userId, string assignmentName, string department, DateTime start, DateTime end)
         {
-            this.assignmentId = id;
+            this.AssignmentId = id;
             this.UserId = userId;
             this.AssignmentName = assignmentName;
             this.Department = department;
