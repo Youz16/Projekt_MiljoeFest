@@ -1,15 +1,73 @@
 ﻿@page "/"
-
-<PageTitle>Miljø Fest | Index</PageTitle>
+@using MiljoeFest.Shared;
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+<PageTitle>Index</PageTitle>
 
 <div class="jumbotron">
   <h1 class="display-4">Velkommen til Miljø Fest!</h1>
   <p class="lead">Vær med til at gøre en forskel for årets festival ved at være frivillig, hvor du varetager valgfrie opgaver!</p>
-  
   <hr class="my-4">
   <p><em>Du får også mulighed for at være en del af interne klubber som bl.a. står for frivilligbar og lign.</em></p>
-  
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="/createUser" role="button">Opret som frivillig</a>
   </p>
 </div>
+<table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Skills</th>
+                <th>Birthday</th>
+                <th>First aid</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.UserId</td>
+
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>@user.Phone</td>
+                    <td>@user.Skills</td>
+                    <td>@user.BirthDay</td>
+                    <td>@user.FirstAid</td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="()=>AssignCurrentUser(user)">Select</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @code
+{
+    List<User> users = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await Http.GetFromJsonAsync<List<User>>("userController/getUsers?role=1");
+    }
+    public void AssignCurrentUser(User user)
+    {
+        StateContainer.UserId = user.UserId;
+        StateContainer.RoleId = user.RoleId;
+        StateContainer.Name = user.Name;
+        StateContainer.Department = user.Department;
+        StateContainer.Email = user.Email;
+        StateContainer.Phone = user.Phone;
+        StateContainer.Skills = user.Skills;
+        StateContainer.BirthDay = user.BirthDay;
+        StateContainer.FirstAid = user.FirstAid;
+    }
+
+    }

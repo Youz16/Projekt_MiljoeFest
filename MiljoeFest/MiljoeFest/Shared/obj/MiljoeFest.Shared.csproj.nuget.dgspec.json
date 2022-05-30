@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {}
+    "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.2\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+    "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.2\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.2\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
         "projectName": "MiljoeFest.Shared",
-        "projectPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
-        "packagesPath": "C:\\Users\\PCUser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCUser\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.2\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+        "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.2\\MiljoeFest\\MiljoeFest\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PCUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

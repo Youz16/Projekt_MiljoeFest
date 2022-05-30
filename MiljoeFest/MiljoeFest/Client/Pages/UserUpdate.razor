@@ -1,0 +1,88 @@
+﻿@page "/userupdate"
+@using MiljoeFest.Shared
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+
+<PageTitle>Miljø Fest | Bruger Info</PageTitle>
+<h1>Bruger Info</h1>
+
+<p>Indtast venligst de krævede oplysninger.</p>
+
+<!--Oprettelse af form som følger modellen for obj "u"-->
+<EditForm Model="@StateContainer" OnValidSubmit="update">
+    
+    <label>Fulde navn:</label>
+    <div>
+        <InputText @bind-Value="@StateContainer.Name" placeholder="Navn"/>
+    </div>
+    
+    <label>Brugertype:</label>
+    <div>
+        <select @bind="@StateContainer.RoleId" readonly> 
+            
+        </select>
+    </div>
+
+    <label>Afdeling:</label>
+    <div>
+        <InputText @bind-Value="@StateContainer.Department" placeholder="Ønskede afdeling"/>
+    </div>
+
+    <label>E-mail:</label>
+    <div>
+        <InputText @bind-Value="@StateContainer.Email" placeholder="adresse@email.com"/>
+    </div>
+    
+    <label>Mobil:</label>
+    <div>
+        <InputText @bind-Value="@StateContainer.Phone" placeholder="12 34 56 78"/>
+    </div>
+    
+    <label>Kompetencer:</label>
+    <div>
+        <InputText @bind-Value="@StateContainer.Skills" placeholder="Ledelse, marketing e.l."/>
+    </div>
+
+    <label>Fødselsdato:</label>
+    <div>
+        <InputDate @bind-Value="@StateContainer.BirthDay" min="1960-01-01"/>
+    </div>
+
+    <label>Førstehjælpsbevis:</label>
+    <div>
+        <InputCheckbox @bind-Value="@StateContainer.FirstAid"/>
+    </div>
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3" href="/">
+        @updateAlert
+    </button>
+</EditForm>
+
+                        <button class="btn btn-danger" @onclick="Delete">@deleteAlert</button>
+@code{
+    public string updateAlert = "Opdater";
+
+    public string deleteAlert = "Slet bruger";
+
+    // Oprettelse af ny instans af User ved navn "u"
+    public async Task delete()
+    {
+        if (StateConainer.UserId == 1)
+        {
+            await Http.DeleteAsync($"userController/delete?userId={StateContainer.UserID}");
+            deleteAlert = "Brugern blev slettet";
+        }
+        else
+        {
+            deleteAlert = "Du har ikke rettigheder til at udføre den valgte handling";
+        }
+    }
+
+    public async Task Update()
+    {
+        // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PutAsJsonAsync($"userController/update?userId={StateContainer.UserId}", StateContainer);
+        updateAlert = "Bruger Opdateret"
+    }
+}
