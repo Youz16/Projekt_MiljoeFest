@@ -1,5 +1,7 @@
 ﻿@page "/userupdate"
+@using MiljoeFest.Client.Shared
 @using MiljoeFest.Shared
+@using System.Net.Http.Json
 @inject HttpClient Http
 @inject StateContainer StateContainer;
 
@@ -7,7 +9,6 @@
 <h1>Bruger Info</h1>
 
 <p>Indtast venligst de krævede oplysninger.</p>
-
 <!--Oprettelse af form som følger modellen for obj "u"-->
 <EditForm Model="@StateContainer" OnValidSubmit="update">
     
@@ -18,9 +19,7 @@
     
     <label>Brugertype:</label>
     <div>
-        <select @bind="@StateContainer.RoleId" readonly> 
-            
-        </select>
+        <InputNumber @bind-Value="@StateContainer.RoleId" readonly/>
     </div>
 
     <label>Afdeling:</label>
@@ -57,21 +56,20 @@
     <button type="submit" class="btn btn-success mt-3" href="/">
         @updateAlert
     </button>
+    <button class="btn btn-danger" @onclick="delete">@deleteAlert</button>
 </EditForm>
 
-                        <button class="btn btn-danger" @onclick="Delete">@deleteAlert</button>
-@code{
+@code {
     public string updateAlert = "Opdater";
 
     public string deleteAlert = "Slet bruger";
 
-    // Oprettelse af ny instans af User ved navn "u"
     public async Task delete()
     {
-        if (StateConainer.UserId == 1)
+        if (StateContainer.UserId == 1)
         {
-            await Http.DeleteAsync($"userController/delete?userId={StateContainer.UserID}");
-            deleteAlert = "Brugern blev slettet";
+            await Http.DeleteAsync($"userController/delete?userId={StateContainer.UserId}");
+            deleteAlert = "Brugeren blev slettet";
         }
         else
         {
@@ -79,10 +77,10 @@
         }
     }
 
-    public async Task Update()
+    public async Task update()
     {
         // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
         await Http.PutAsJsonAsync($"userController/update?userId={StateContainer.UserId}", StateContainer);
-        updateAlert = "Bruger Opdateret"
+        updateAlert = "Bruger Opdateret";
     }
 }

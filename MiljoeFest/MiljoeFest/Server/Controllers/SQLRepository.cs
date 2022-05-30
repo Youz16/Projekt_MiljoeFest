@@ -53,7 +53,7 @@ namespace MiljoeFest.Server.Controllers
 
 
             //@role is a placeholder, later filled in at queryArguments
-            string commandText = $@"SELECT user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
+            string commandText = $@"SELECT role_id as RoleId, user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
                                     FROM users WHERE role_id = @uRole";
             IEnumerable<User>? users = null;
             var parameters = new DynamicParameters();
