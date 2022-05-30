@@ -13,6 +13,8 @@
         public DateTime? BirthDay { get; set; }
         public bool FirstAid { get; set; }
 
+       
+
 
         public DateTime DateReg = DateTime.Now;
         public User()

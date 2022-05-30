@@ -1,0 +1,59 @@
+﻿@page "/booking"
+@using MiljoeFest.Shared;
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+<PageTitle>Booking</PageTitle>
+
+<div class="jumbotron">
+  <h1 class="display-4">Book dine vagter her</h1>
+  <h2 class="display-10">Dine bookede vagter vil være under bruger info</h2>
+ 
+  <hr class="my-4">
+ 
+  
+</div>
+<div>""</div>
+<table class="table">
+        <thead>
+            <tr>
+               
+                <th>Lokation</th>
+                <th>Start Tidspunkt</th>
+                <th>Slut Tidspunkt</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in shifts)
+            {
+                <tr>
+                    <td>@s.Location</td>
+                    <td>@s.Start</td>
+                    <td>@s.End</td>
+                    
+                    <td>
+                        <button class="btn btn-danger" @onclick="()=>BookShift(s)">Book</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    List<Shift> shifts = new();
+    private string bookStatus = "Book";
+
+    protected override async Task OnInitializedAsync()
+    {
+        shifts = await Http.GetFromJsonAsync<List<Shift>>("shiftController/getShifts?booked=false");
+    }
+
+    public async Task BookShift(Shift s)
+    {
+        s.IsBooked = true;
+        s.UserId = StateContainer.UserId;
+        await Http.PutAsJsonAsync($"shiftController/update?shiftId = {s.ShiftId}", s);
+        
+    }
+}

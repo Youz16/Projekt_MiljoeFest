@@ -15,17 +15,23 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpGet("getShifts")]
-        public async Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked)
+        public async Task<IEnumerable<Shift>> GetShifts( bool booked)
         {
-            List<Shift> shifts = new();
-            var list = await _sqlRepository.GetShifts(assignmentId, booked);
-            foreach (Shift s in list)
-            {
-                shifts.Add(s);
-            }
-
-            return shifts;
+          
+            var list = await _sqlRepository.GetShifts(booked);
+           
+            return list;
         }
+
+        [HttpGet("getUserShifts")]
+        public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
+        {
+            
+            var list = await _sqlRepository.GetUserShifts(userId);
+
+            return list;
+        }
+
 
         [HttpDelete("delete")]
         public async Task DeleteShift(int shiftId)

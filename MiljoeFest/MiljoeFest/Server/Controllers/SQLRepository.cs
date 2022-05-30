@@ -121,12 +121,15 @@ namespace MiljoeFest.Server.Controllers
             await DBContext.connection.ExecuteAsync(commandText, parameters);
         }
 
-        public async Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked)
+        public async Task<IEnumerable<Shift>> GetShifts(bool booked)
         {
-            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked FROM shifts WHERE assignment_id = @asId AND isBooked = @booked";
+            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked" +
+                $" FROM shifts" +
+                $" WHERE isBooked = @booked" +
+                $"GROUP BY assignment_id";
             var parameters = new DynamicParameters();
             IEnumerable<Shift>? shifts = null;
-            parameters.Add("asId", assignmentId);
+            
             parameters.Add("booked", booked);
             try
             {
@@ -141,7 +144,9 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
         {
-            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked FROM shifts WHERE user_id = @uId";
+            string commandText = $"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as start, end_time as end, isBooked" +
+                $" FROM shifts" +
+                $" WHERE user_id = @uId";
             var parameters = new DynamicParameters();
             IEnumerable<Shift>? shifts = null;
             parameters.Add("uId", userId);

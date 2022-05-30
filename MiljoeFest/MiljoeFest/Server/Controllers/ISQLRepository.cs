@@ -11,7 +11,7 @@ namespace MiljoeFest.Server.Controllers
 
         Task CreateUser(User u);
 
-        Task<IEnumerable<Shift>> GetShifts(int assignmentId, bool booked);
+        Task<IEnumerable<Shift>> GetShifts(bool booked);
 
         Task UpdateUser(int userId, User u);
 

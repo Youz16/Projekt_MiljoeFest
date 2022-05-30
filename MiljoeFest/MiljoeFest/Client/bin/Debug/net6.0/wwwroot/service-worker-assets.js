@@ -865,19 +865,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-kryBqQRWf2snFWLBe2AKDc2swpHLHXxaemhY09s4tCM=",
+      "hash": "sha256-X59esrwUQT6nxB5T4sJt3hFLH7vAxJU9SnjWlwTMiYg=",
       "url": "_framework\/MiljoeFest.Shared.dll"
     },
     {
-      "hash": "sha256-lyzolXhgHVzxTQw7G9dHCz341AX9mow91W9wGq0dcbQ=",
+      "hash": "sha256-3GNccC2ez3oYyr7kq\/CaWgtml\/avrWxjX+H1oWWjI3c=",
       "url": "_framework\/MiljoeFest.Shared.pdb"
     },
     {
-      "hash": "sha256-fdZfOPDUKZefM1woiKG3fXusit42C\/bXHT0N1bL8H3Q=",
+      "hash": "sha256-gIhQwi+vOzYhXq2KDqxmLzkWOtdKnSTOFNe4cO4TY3o=",
       "url": "_framework\/MiljoeFest.Client.dll"
     },
     {
-      "hash": "sha256-bSdwmna8I8r+3Dca7EOATH0lihLxFZKk60ca8Fd8jRc=",
+      "hash": "sha256-gojxu2ubSeKTZnWlaFkBbXsguDkBGM6ly4\/xSklM9EI=",
       "url": "_framework\/MiljoeFest.Client.pdb"
     },
     {
@@ -885,9 +885,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-MrqemePIPqg2Bb4d0TWqGTtx0tpKRIthlOG51pW3eOg=",
+      "hash": "sha256-fvwO3T0ZhWrGfL\/E9HM5g4MXWW9pWDk7Rb0drljyjWs=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "BiN4iOH4"
+  "version": "5dYTEVOA"
 };

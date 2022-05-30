@@ -59,10 +59,46 @@
     <button class="btn btn-danger" @onclick="delete">@deleteAlert</button>
 </EditForm>
 
-@code {
-    public string updateAlert = "Opdater";
 
-    public string deleteAlert = "Slet bruger";
+
+<p>Nedenfor ser du dine bookede vagter</p>
+
+<table class="table">
+        <thead>
+            <tr>
+               <th>Vagt Id</th>
+                <th>Lokations</th>
+                <th>Start Tidspunkt</th>
+                <th>Slut Tidspunkt</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in shifts)
+            {
+                <tr>
+                    <td>@s.ShiftId</td>
+                    <td>@s.Location</td>
+                    <td>@s.Start</td>
+                    <td>@s.End</td>
+                    
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    private string updateAlert = "Opdater";
+
+    private string deleteAlert = "Slet bruger";
+
+    private List<Shift> shifts = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getUserShifts?userId0{StateContainer.UserId}");
+    }
 
     public async Task delete()
     {
