@@ -173,7 +173,7 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task CreateShift(Shift s)
         {
-            string commandText = $"INSERT INTO shifts (shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as start, end_time as end, isBooked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
+            string commandText = $"INSERT INTO shifts (shift_id, assignment_id, user_id, location, start_time, end_time, isBooked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
             var parameters = new DynamicParameters();
             parameters.Add("sId", s.ShiftId);
             parameters.Add("asId", s.AssignmentId);
@@ -223,7 +223,7 @@ namespace MiljoeFest.Server.Controllers
         public async Task CreateAssignment(Assignment a)
         {
             string commandText =
-                $@"INSERT INTO assignments(user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end)
+                $@"INSERT INTO assignments(user_id, assignment_name, department, start_time, end_time)
                     VALUES(@UserId, @aName, @aDep, @aStart, @aEnd)";
 
             var parameters = new DynamicParameters();
@@ -247,8 +247,8 @@ namespace MiljoeFest.Server.Controllers
         public async Task<IEnumerable<Assignment>> GetAssignments()
         {
             string commandText =
-                $@"SELECT user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end
-                   FROM assingments ORDER BY user_Id";
+                $@"SELECT assignment_id as assignmentId, user_id as userId, assignment_name as assignmentName, department, start_time as start, end_time as end
+                   FROM assignments ORDER BY user_Id";
 
             IEnumerable<Assignment>? assignments = null;
             try

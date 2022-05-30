@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzaWdubWVudENyZWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PCUser/Desktop/Projekt_MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Assignments.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzaWdubWVudHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PCUser/Desktop/Projekt_MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PCUser/Desktop/Projekt_MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PCUser/Desktop/Projekt_MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/ShiftCreation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hpZnRDcmVhdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PCUser/Desktop/Projekt_MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/UserCreation.razor]

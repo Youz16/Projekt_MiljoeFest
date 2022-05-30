@@ -1,0 +1,60 @@
+﻿@page "/ShiftCreation"
+@using MiljoeFest.Shared
+@inject HttpClient Http
+
+<PageTitle>Miljø Fest | Vagtoprettelse</PageTitle>
+<h1>Vagtoprettelse</h1>
+
+<p>Indtast venligst de krævede oplysninger.</p>
+
+<!--Oprettelse af form som følger modellen for obj "s"-->
+<EditForm Model="@s" OnValidSubmit="createShift">
+    
+    <label>Opgaveid:</label>
+    <div>
+        <InputNumber @bind-Value="@s.AssignmentId" placeholder="OpgaveID"/>
+    </div>
+    
+    <label>Coordinator:</label>
+    <div>
+        <InputNumber @bind-Value="@s.UserId" placeholder="Coordinator"/>
+    </div>
+
+    <label>Lokalitet:</label>
+    <div>
+        <InputText @bind-Value="@s.Location" placeholder="Lokalitet"/>
+    </div>
+
+    <label>Start- og sluttid:</label>
+    <div>
+        <InputDate @bind-Value="@s.Start" min="1960-01-01"/>
+    </div>
+    <div>
+        <InputDate @bind-Value="@s.End" min="1960-01-01"/>
+    </div>
+    
+    <label>Booked:</label>
+    <div>
+        <InputCheckbox @bind-Value="@s.IsBooked"/>
+    </div>
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @ButtonText
+    </button>
+</EditForm>
+
+
+
+@code {
+    public string ButtonText = "Opret vagt";
+
+    // Oprettelse af ny instans af Shift ved navn "s"
+    Shift s = new();
+
+    public async Task createShift()
+    {
+        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PostAsJsonAsync<Shift>("shiftController/create", s);
+    }
+}

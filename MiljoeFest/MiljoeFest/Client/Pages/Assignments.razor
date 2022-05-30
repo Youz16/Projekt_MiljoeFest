@@ -1,0 +1,55 @@
+﻿@page "/Assignmentslist"
+@using MiljoeFest.Shared
+@inject HttpClient Http
+
+<PageTitle>Miljø Fest | Opgaver</PageTitle>
+
+<h1>Opgaver</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (assignments == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>AssignmentID</th>
+                <th>CoordinatorID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in assignments)
+            {
+                <tr>
+                    <td>@a.assignmentId</td>
+                    <td>@a.UserId</td>
+                    <td>@a.AssignmentName</td>
+                    <td>@a.Department</td>
+                    <td>@a.Start</td>
+                    <td>@a.End</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<Assignment> assignments = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>("assignmentController/getAssignments");
+    }
+}

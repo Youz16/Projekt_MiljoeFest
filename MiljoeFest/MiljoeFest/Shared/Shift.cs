@@ -1,4 +1,4 @@
-﻿namespace MiljoeFest.Server
+﻿namespace MiljoeFest.Shared
 {
     public class Shift
     {
@@ -19,6 +19,11 @@
             this.Start = start;
             this.End = end;
             this.IsBooked = false;
+        }
+
+        public Shift() 
+        {
+
         }
 
     }

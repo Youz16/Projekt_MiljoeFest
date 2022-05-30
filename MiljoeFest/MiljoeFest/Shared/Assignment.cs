@@ -2,7 +2,7 @@
 {
     public class Assignment
     {
-        public int assignmentId;
+        public int assignmentId { get; set; }
         public int UserId { get; set; }
         public string AssignmentName { get; set; }
         public string Department { get; set; }
