@@ -11,69 +11,77 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = MiljoeFest.Client
 build_property.RootNamespace = MiljoeFest.Client
-build_property.ProjectDir = C:\Users\BloodFray\Desktop\backup2\MiljoeFest\MiljoeFest\Client\
+build_property.ProjectDir = C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\MiljoeFest\MiljoeFest\Client\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\BloodFray\Desktop\backup2\MiljoeFest\MiljoeFest\Client
+build_property.MSBuildProjectDirectory = C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\MiljoeFest\MiljoeFest\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/App.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/AssignmentCreation.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/AssignmentCreation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzaWdubWVudENyZWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/Assignments.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/AssignmentCrud.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzaWdubWVudENydWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Assignments.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzaWdubWVudHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/Booking.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Booking.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/CoordinatorPage.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/CoordinatorPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29vcmRpbmF0b3JQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/Counter.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/FetchData.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/Index.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/ShiftCreation.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/ShiftCreation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hpZnRDcmVhdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/UpdateUser.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/ShiftCrud.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hpZnRDcnVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/UpdateUser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Pages/UserCreation.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Pages/UserCreation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckNyZWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Shared/SurveyPrompt.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/_Imports.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Shared/MainLayout.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-mj6rs5pd92
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Client/Shared/NavMenu.razor]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Client/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-2r4tdpo3ma

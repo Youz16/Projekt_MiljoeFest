@@ -11,5 +11,7 @@
         public string? Skills { get; set; }
         public DateTime? BirthDay { get; set; }
         public bool FirstAid { get; set; }
+
+
     }
 }

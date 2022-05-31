@@ -1,0 +1,214 @@
+﻿
+@page "/userCrud"
+@using MiljoeFest.Shared;
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+
+<PageTitle>Opgave Redigering</PageTitle>
+
+<div class="jumbotron">
+  <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
+  
+ 
+  <hr class="my-4">
+ 
+ 
+
+<!--Oprettelse af form som følger modellen for obj "s"-->
+<EditForm Model="@u" OnValidSubmit="createUser">
+    
+    
+    <label>Bruger ID:</label>
+    <div>
+        <InputNumber @bind-Value="@u.UserId" placeholder="ID" readonly/>
+    </div>
+    <label>Rolle:</label>
+    <div>
+        <InputNumber @bind-Value="@u.RoleId" placeholder="ID" readonly/>
+    </div>
+    <label>Navn:</label>
+    <div>
+        <InputText @bind-Value="@u.Name" placeholder="Gøj" />
+    </div>
+    <label>Afdeling:</label>
+    <div>
+        <InputText @bind-Value="@u.Department" placeholder="Mad"/>
+    </div>
+    <label>Email:</label>
+    <div>
+        <InputText @bind-Value="@u.Email" placeholder="@gmail.com" />
+    </div>
+    <label>Tlf:</label>
+    <div>
+        <InputText @bind-Value="@u.Phone" placeholder="20304050" />
+    </div>
+    <label>Kompetencer:</label>
+    <div>
+        <InputText @bind-Value="@u.Skills" placeholder="tømrer"/>
+    </div>
+    <label>Fødselsdag:</label>
+    <div>
+        <InputDate @bind-Value="@u.BirthDay" placeholder="200/05/18"/>
+    </div>
+    <label>Førstehjælp:</label>
+    <div>
+        <InputCheckBox @bind-Value="@u.FirstAid" />
+    </div>
+    
+    
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpretText
+    </button>
+
+</EditForm>
+
+<EditForm Model="@current" OnValidSubmit="UpdateUser">
+    
+     
+    
+    <label>Rolle:</label>
+    <div>
+        <InputNumber @bind-Value="@current.RoleId" placeholder="ID" readonly/>
+    </div>
+    <label>Navn:</label>
+    <div>
+        <InputText @bind-Value="@current.Name" placeholder="Gøj" />
+    </div>
+    <label>Afdeling:</label>
+    <div>
+        <InputText @bind-Value="@current.Department" placeholder="Mad"/>
+    </div>
+    <label>Email:</label>
+    <div>
+        <InputText @bind-Value="@current.Email" placeholder="@gmail.com" />
+    </div>
+    <label>Tlf:</label>
+    <div>
+        <InputText @bind-Value="@current.Phone" placeholder="20304050" />
+    </div>
+    <label>Kompetencer:</label>
+    <div>
+        <InputText @bind-Value="@current.Skills" placeholder="tømrer"/>
+    </div>
+    <label>Fødselsdag:</label>
+    <div>
+        <InputDate @bind-Value="@current.BirthDay" placeholder="200/05/18"/>
+    </div>
+    <label>Førstehjælp:</label>
+    <div>
+        <InputCheckBox @bind-Value="@current.FirstAid" />
+    </div>
+    
+
+    
+   
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpdaterText
+    </button>
+</EditForm>
+
+</div>
+
+
+    <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
+        <label>Slet opgave med ID:</label>
+    <div>
+        <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Opgave ID"/>
+    </div>
+    <button type="submit" class="btn btn-danger mt-3">
+        @deleteText
+    </button>
+</EditForm>
+
+<table class="table">
+        <thead>
+            <tr>
+               <th>Bruger ID</th>
+               <th>Rolle</th>
+               <th>Navn</th>
+               <th>Afdeling</th>
+               <th>Email</th>
+               <th>Tlf.</th>
+               <th>Kompetencer</th>
+               <th>Fødselsdag</th>
+               <th>Førstehjælp</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in users)
+            {
+                <tr>
+                    <td>@u.UserId</td>
+                    <td>@u.RoleId</td>
+                    <td>@u.Name</td>
+                    <td>@u.Department</td>
+                    <td>@u.Email</td>
+                    <td>@u.Phone</td>
+                    <td>@u.Skills</td>
+                    <td>@u.BirthDay</td>
+                    <td>@u.FirstAid</td>
+                   
+                    
+                    <td>
+                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    List<User> users = new();
+    public string OpretText = "Opret Bruger";
+    public string OpdaterText = "Opdater Bruger";
+    public string deleteText = "Slet Bruger";
+    private User u = new();
+    private User current = new();
+    private User deleteAssignment = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+    }
+
+    public void AssignCurrent(Assignment a)
+    {
+        current.AssignmentId = a.AssignmentId;
+        current.UserId = a.UserId;
+        current.AssignmentName = a.AssignmentName;
+        current.Department = a.Department;
+        current.Start = a.Start;
+        current.End = a.End;
+
+    }
+
+
+    // Oprettelse af ny instans af Shift ved navn "s"
+
+
+    public async Task createAssignment()
+    {
+        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+
+    public async Task UpdateAssignment()
+    {
+
+        await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+
+    public async Task DeleteAssignment()
+    {
+        await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+}
+

@@ -69,16 +69,17 @@ namespace MiljoeFest.Server.Controllers
             return users;
         }
 
-        public async Task<IEnumerable<User>> GetUser(int userId)
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            string commandText = $"SELECT * FROM users WHERE user_id = @uId";
+            string commandText = $@"SELECT role_id as RoleId, user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
+                                    FROM users"; 
+                                    
             IEnumerable<User>? u = null;
-            var parameters = new DynamicParameters();
-            parameters.Add("uId", userId);
+            
             try
             {
 
-                u = await DBContext.connection.QueryAsync<User>(commandText, parameters);
+                u = await DBContext.connection.QueryAsync<User>(commandText);
             }
             catch (Exception ex)
             {
@@ -121,9 +122,30 @@ namespace MiljoeFest.Server.Controllers
             await DBContext.connection.ExecuteAsync(commandText, parameters);
         }
 
+        public async Task<IEnumerable<Shift>> GetAllShifts()
+        {
+            string commandText = $@"SELECT shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
+                FROM shifts
+                
+                ORDER BY assignment_id";
+           
+            IEnumerable<Shift>? shifts = null;
+
+            
+            try
+            {
+                shifts = await DBContext.connection.QueryAsync<Shift>(commandText);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return shifts;
+        }
+
         public async Task<IEnumerable<Shift>> GetShifts(bool booked)
         {
-            string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, is_booked as IsBooked
+            string commandText = $@"SELECT shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
                 FROM shifts
                 WHERE is_booked = @booked
                 ORDER BY assignment_id";
@@ -144,9 +166,9 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
         {
-            string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, is_booked as IsBooked
+            string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
                  FROM shifts
-                 WHERE user_id = @uId";
+                 WHERE booked_by = @uId";
             var parameters = new DynamicParameters();
             IEnumerable<Shift>? shifts = null;
             parameters.Add("uId", userId);
@@ -178,15 +200,16 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task CreateShift(Shift s)
         {
-            string commandText = $"INSERT INTO shifts (shift_id, assignment_id, user_id, location, start_time, end_time, is_booked) VALUES (@sID, @asId, @uId, @loc, @sStart, @sEnd, @booked)";
+            string commandText = $"INSERT INTO shifts (assignment_id, user_id, location, start_time, end_time, booked_by, is_booked) VALUES (@asId, @uId, @loc, @sStart, @sEnd, @sBookedBy, @sBooked)";
             var parameters = new DynamicParameters();
-            parameters.Add("sId", s.ShiftId);
+            
             parameters.Add("asId", s.AssignmentId);
             parameters.Add("uId", s.UserId);
             parameters.Add("loc", s.Location);
             parameters.Add("sStart", s.Start);
             parameters.Add("sEnd", s.End);
-            parameters.Add("booked", s.IsBooked);
+            parameters.Add("sBookedBy", s.BookedBy);
+            parameters.Add("sBooked", s.IsBooked);
             try
             {
                 await DBContext.connection.ExecuteAsync(commandText, parameters);
@@ -202,17 +225,19 @@ namespace MiljoeFest.Server.Controllers
             //@ - tagged attributes are later specified in queryArguments
             string commandText =
                 $@"UPDATE shifts
-                    SET shift_id = sId, shiftassignment_id = @asId, user_id = @uId, location = @loc, start_time = @sStart, end_time = @sEnd, is_booked = @booked
+                    SET shift_id = @sId, assignment_id = @asId, user_id = @uId, location = @loc, start_time = @sStart, end_time = @sEnd, booked_by = @sBookedBy, is_booked = @booked
                     Where shift_id = @sId";
             var parameters = new DynamicParameters();
 
+            parameters.Add("sId", s.ShiftId);
             parameters.Add("asId", s.AssignmentId);
             parameters.Add("uId", s.UserId);
-            parameters.Add("lock", s.Location);
+            parameters.Add("loc", s.Location);
             parameters.Add("sStart", s.Start);
             parameters.Add("sEnd", s.End);
-            parameters.Add("book", s.IsBooked);
-            parameters.Add("sId", s.ShiftId);
+            parameters.Add("booked", s.IsBooked);
+            parameters.Add("sBookedBy", s.BookedBy);
+            
 
             try
             {

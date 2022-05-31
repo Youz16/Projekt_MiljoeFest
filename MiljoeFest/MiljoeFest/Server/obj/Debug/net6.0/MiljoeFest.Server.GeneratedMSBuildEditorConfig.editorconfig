@@ -8,13 +8,13 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MiljoeFest.Server
 build_property.RootNamespace = MiljoeFest.Server
-build_property.ProjectDir = C:\Users\BloodFray\Desktop\backup2\MiljoeFest\MiljoeFest\Server\
+build_property.ProjectDir = C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\MiljoeFest\MiljoeFest\Server\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\BloodFray\Desktop\backup2\MiljoeFest\MiljoeFest\Server
+build_property.MSBuildProjectDirectory = C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest\MiljoeFest\MiljoeFest\Server
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/BloodFray/Desktop/backup2/MiljoeFest/MiljoeFest/Server/Pages/Error.cshtml]
+[C:/Users/Asger H. Lauridsen/OneDrive/Skrivebord/MiljoeFest/MiljoeFest/MiljoeFest/Server/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

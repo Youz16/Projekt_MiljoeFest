@@ -1,0 +1,175 @@
+﻿@page "/assignmentCrud"
+@using MiljoeFest.Shared;
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+
+<PageTitle>Opgave Redigering</PageTitle>
+
+<div class="jumbotron">
+  <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
+  
+ 
+  <hr class="my-4">
+ 
+ 
+
+<!--Oprettelse af form som følger modellen for obj "s"-->
+<EditForm Model="@a" OnValidSubmit="createAssignment">
+    
+    
+    <label>Koordinator ID:</label>
+    <div>
+        <InputNumber @bind-Value="@StateContainer.UserId" placeholder="Koordinator ID" readonly/>
+    </div>
+    
+    <label>Opgavenavn:</label>
+    <div>
+        <InputText @bind-Value="@a.AssignmentName" placeholder="Svens fedtede Flæske Grillen"/>
+    </div>
+    
+    <label>Afdeling:</label>
+    <div>
+        <InputText @bind-Value="@a.Department" placeholder="Mad"/>
+    </div>
+    
+    <label>Start Tidspunkt:</label>
+    <div>
+        <InputDate  @bind-Value="@a.Start"/>
+    </div>
+   <label>Slut Tidspunkt:</label>
+    <div>
+        <InputDate  @bind-Value="@a.End"/>
+    </div>
+    
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpretText
+    </button>
+
+</EditForm>
+
+<EditForm Model="@current" OnValidSubmit="UpdateAssignment">
+    
+     
+    <label>Koordinator ID:</label>
+    <div>
+        <InputNumber @bind-Value="@current.UserId" placeholder="Koordinator ID"/>
+    </div>
+    <label>Opgave Navn:</label>
+    <div>
+        <InputText @bind-Value="@current.AssignmentName" placeholder="Fedted Flæsk"/>
+    </div>
+    <label>Opgave start og slut:</label>
+    <div>
+        <InputDate @bind-Value="@current.Start"/>
+    </div>
+     <div>
+        <InputDate @bind-Value="@current.End"/>
+    </div>
+    
+
+    
+   
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpdaterText
+    </button>
+</EditForm>
+
+</div>
+
+
+    <EditForm Model="@deleteAssignment" OnValidSubmit="DeleteAssignment">
+        <label>Slet opgave med ID:</label>
+    <div>
+        <InputNumber @bind-Value="@deleteAssignment.AssignmentId" placeholder="Opgave ID"/>
+    </div>
+    <button type="submit" class="btn btn-danger mt-3">
+        @deleteText
+    </button>
+</EditForm>
+
+<table class="table">
+        <thead>
+            <tr>
+               <th>Opgave ID</th>
+               <th>Koordinator ID</th>
+               <th>Navn</th>
+               <th>Afdeling</th>
+               <th>Start</th>
+               <th>End</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in assignments)
+            {
+                <tr>
+                    <td>@a.AssignmentId</td>
+                    <td>@a.UserId</td>
+                    <td>@a.AssignmentName</td>
+                    <td>@a.Department</td>
+                    <td>@a.Start</td>
+                    <td>@a.End</td>
+                   
+                    
+                    <td>
+                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    List<Assignment> assignments = new();
+    public string OpretText = "Opret Opgave";
+    public string OpdaterText = "Opdater Opgave";
+    public string deleteText = "Slet Opgave";
+    private Assignment a = new();
+    private Assignment current = new();
+    private Assignment deleteAssignment = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+
+    public void AssignCurrent(Assignment a)
+    {
+        current.AssignmentId = a.AssignmentId;
+        current.UserId = a.UserId;
+        current.AssignmentName = a.AssignmentName;
+        current.Department = a.Department;
+        current.Start = a.Start;
+        current.End = a.End;
+
+    }
+
+
+    // Oprettelse af ny instans af Shift ved navn "s"
+
+
+    public async Task createAssignment()
+    {
+        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+
+    public async Task UpdateAssignment()
+    {
+
+        await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+
+    public async Task DeleteAssignment()
+    {
+        await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
+        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+    }
+}
+

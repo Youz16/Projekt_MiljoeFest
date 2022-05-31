@@ -27,14 +27,14 @@ namespace MiljoeFest.Server.Controllers
             return list;
         }
 
-        [HttpGet("getUser")]
-        public async Task<IEnumerable<User>> GetUser([FromQuery] int userId)
+        [HttpGet("getAllUser")]
+        public async Task<IEnumerable<User>> GetUser()
 
         {
-            var user = await _sqlRepository.GetUser(userId);
+            var list = await _sqlRepository.GetAllUsers();
 
 
-            return user;
+            return list;
         }
 
         [HttpPost("create")]

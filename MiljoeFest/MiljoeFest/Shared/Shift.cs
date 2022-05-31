@@ -8,6 +8,7 @@
         public string? Location { get; set; }
         public DateTime? Start { get; set; }
         public DateTime? End { get; set; }
+        public int? BookedBy { get; set; }
         public bool IsBooked { get; set; }
 
         public Shift(int shiftId, int assignmentId, int userId, string loc, DateTime start, DateTime end)

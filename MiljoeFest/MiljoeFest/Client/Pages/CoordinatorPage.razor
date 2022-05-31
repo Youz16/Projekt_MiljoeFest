@@ -132,20 +132,10 @@
 
     public async Task deleteAssignment()
     {
-        if (StateContainer.UserId == 1)
-        {
-            if (assign.shifts.Count > 0)
-            {
-                deleteAlertA = "Der er vagter tilknytte denne opgave, slet dem før du sletter opgaven";
-            }
-            else {
+              
                 await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={assign.AssignmentId}");
-            }
-        }
-        else
-        {
-            deleteAlert = "Du har ikke rettigheder til at udføre den valgte handling";
-        }
+            
+       
     }
 
     public async Task updateAssignment()

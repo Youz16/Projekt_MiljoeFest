@@ -14,6 +14,15 @@ namespace MiljoeFest.Server.Controllers
             _sqlRepository = i;
         }
 
+        [HttpGet("getAllShifts")]
+        public async Task<IEnumerable<Shift>> GetAllShifts()
+        {
+
+            var list = await _sqlRepository.GetAllShifts();
+
+            return list;
+        }
+
         [HttpGet("getShifts")]
         public async Task<IEnumerable<Shift>> GetShifts([FromQuery] bool booked)
         {
@@ -24,7 +33,7 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpGet("getUserShifts")]
-        public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
+        public async Task<IEnumerable<Shift>> GetUserShifts([FromQuery] int userId)
         {
             
             var list = await _sqlRepository.GetUserShifts(userId);
@@ -34,9 +43,9 @@ namespace MiljoeFest.Server.Controllers
 
 
         [HttpDelete("delete")]
-        public async Task DeleteShift(int shiftId)
+        public async Task DeleteShift([FromQuery] int shiftId)
         {
-            await _sqlRepository.DeleteUser(shiftId);
+            await _sqlRepository.DeleteShift(shiftId);
         }
 
         [HttpPost("create")]
@@ -46,7 +55,7 @@ namespace MiljoeFest.Server.Controllers
         }
 
         [HttpPut("update")]
-        public async Task UpdateShift(int shiftId, Shift s)
+        public async Task UpdateShift([FromQuery] int shiftId, Shift s)
         {
             await _sqlRepository.UpdateShift(shiftId, s);
         }

@@ -1,0 +1,195 @@
+﻿@page "/shiftCrud"
+@using MiljoeFest.Shared;
+@inject HttpClient Http
+@inject StateContainer StateContainer;
+
+<PageTitle>Vagt Redigering</PageTitle>
+
+<div class="jumbotron">
+  <h1 class="display-4">Koordinatorer kan redigerer vagter her</h1>
+  
+ 
+  <hr class="my-4">
+ 
+ 
+
+<!--Oprettelse af form som følger modellen for obj "s"-->
+<EditForm Model="@s" OnValidSubmit="createShift">
+    
+    <label>Opgaveid:</label>
+    <div>
+        <InputNumber @bind-Value="@s.AssignmentId" placeholder="OpgaveID"/>
+    </div>
+    
+    <label>Coordinator:</label>
+    <div>
+        <InputNumber @bind-Value="@StateContainer.UserId" readonly/>
+    </div>
+
+    <label>Lokalitet:</label>
+    <div>
+        <InputText @bind-Value="@s.Location" placeholder="Lokalitet"/>
+    </div>
+
+    <label>Start- og sluttid:</label>
+    <div>
+        <InputDate @bind-Value="@s.Start" min="1960-01-01"/>
+    </div>
+    <div>
+        <InputDate @bind-Value="@s.End" min="1960-01-01"/>
+    </div>
+
+    
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpretText
+    </button>
+
+</EditForm>
+
+<EditForm Model="@current" OnValidSubmit="UpdateShift">
+    
+     <label>Vagt ID:</label>
+    <div>
+        <InputNumber @bind-Value="@current.ShiftId" placeholder="Vagt ID"/>
+    </div>
+
+    <label>Opgave ID:</label>
+    <div>
+        <InputNumber @bind-Value="@current.AssignmentId" placeholder="Opgave ID"/>
+    </div>
+    
+    <label>Coordinator:</label>
+    <div>
+        <InputNumber @bind-Value="@current.UserId" readonly/>
+    </div>
+
+    <label>Lokalitet:</label>
+    <div>
+        <InputText @bind-Value="@current.Location" placeholder="Lokalitet"/>
+    </div>
+
+    <label>Start- og sluttid:</label>
+    <div>
+        <InputDate @bind-Value="@current.Start" min="1960-01-01"/>
+    </div>
+    <div>
+        <InputDate @bind-Value="@current.End" min="1960-01-01"/>
+    </div>
+    <label>Booked af</label>
+     <div>
+        <InputNumber @bind-Value="@current.BookedBy"/>
+    </div>
+    <label>Er den booked?</label>
+     <div>
+        <InputCheckbox @bind-Value="@current.IsBooked"/>
+    </div>
+
+    
+    
+    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+    <button type="submit" class="btn btn-success mt-3">
+        @OpdaterText
+    </button>
+</EditForm>
+
+</div>
+
+
+    <EditForm Model="@deleteShift" OnValidSubmit="DeleteShift">
+        <label>Slet vagt med ID:</label>
+    <div>
+        <InputNumber @bind-Value="@deleteShift.ShiftId" placeholder="Vagt ID"/>
+    </div>
+    <button type="submit" class="btn btn-danger mt-3">
+        @deleteText
+    </button>
+</EditForm>
+
+<table class="table">
+        <thead>
+            <tr>
+               <th>Vagt ID</th>
+               <th>Opgave ID</th>
+               <th>Oprettet af</th>
+                <th>Lokation</th>
+                <th>Start Tidspunkt</th>
+                <th>Slut Tidspunkt</th>
+                <th>Booked af</th>
+                <th>Er den booked</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in shifts)
+            {
+                <tr>
+                    <td>@s.ShiftId</td>
+                    <td>@s.AssignmentId</td>
+                    <td>@s.UserId</td>
+                    <td>@s.Location</td>
+                    <td>@s.Start</td>
+                    <td>@s.End</td>
+                    <td>@s.BookedBy</td>
+                    <td>@s.IsBooked</td>
+                    
+                    <td>
+                         <button class="btn btn-danger" @onclick="()=>AssignCurrentShift(s)">Select</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    List<Shift> shifts = new();
+    public string OpretText = "Opret vagt";
+    public string OpdaterText = "Opdater vagt";
+    public string deleteText = "Slet vagt";
+    private Shift s = new();
+    private Shift current = new();
+    private Shift deleteShift = new();
+    protected override async Task OnInitializedAsync()
+    {
+        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+    }
+
+    public void AssignCurrentShift(Shift s)
+    {
+        current.ShiftId = s.ShiftId;
+        current.AssignmentId = s.AssignmentId;
+        current.UserId = s.UserId;
+        current.Location = s.Location;
+        current.Start = s.Start;
+        current.End = s.End;
+        current.BookedBy = s.BookedBy;
+        current.IsBooked = s.IsBooked;
+    }
+
+
+    // Oprettelse af ny instans af Shift ved navn "s"
+
+
+    public async Task createShift()
+    {
+        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        await Http.PostAsJsonAsync<Shift>("shiftController/create", s);
+         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+    }
+
+    public async Task UpdateShift()
+    {
+        
+        await Http.PutAsJsonAsync($"shiftController/update?shiftId={current.ShiftId}", current);
+         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+    }
+
+    public async Task DeleteShift()
+    {
+        await Http.DeleteAsync($"shiftController/delete?shiftId={deleteShift.ShiftId}");
+         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+    }
+}
+

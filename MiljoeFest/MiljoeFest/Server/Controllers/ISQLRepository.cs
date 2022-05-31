@@ -7,9 +7,11 @@ namespace MiljoeFest.Server.Controllers
     {
         Task<IEnumerable<User>> GetUsers(int role);
 
-        Task<IEnumerable<User>> GetUser(int userId);
+        Task<IEnumerable<User>> GetAllUsers();
 
         Task CreateUser(User u);
+
+        Task<IEnumerable<Shift>> GetAllShifts();
 
         Task<IEnumerable<Shift>> GetShifts(bool booked);
 

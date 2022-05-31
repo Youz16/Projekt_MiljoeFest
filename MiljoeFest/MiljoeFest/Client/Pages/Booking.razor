@@ -27,6 +27,7 @@
             @foreach (var s in shifts)
             {
                 <tr>
+                    <td>@s.ShiftId</td>
                     <td>@s.Location</td>
                     <td>@s.Start</td>
                     <td>@s.End</td>
@@ -46,7 +47,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getShifts?booked={false}");
+        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getShifts?booked=false");
     }
 
     public async Task BookShift(Shift s)
@@ -54,13 +55,14 @@
         Shift shift = new();
         shift.ShiftId = s.ShiftId;
         shift.AssignmentId = s.AssignmentId;
-        shift.UserId = StateContainer.UserId;
+        shift.UserId = s.UserId;
         shift.Location = s.Location;
         shift.Start = s.Start;
         shift.End = s.End;
+        shift.BookedBy = StateContainer.UserId;
         shift.IsBooked = true;
 
-        await Http.PutAsJsonAsync($"shiftController/update?shiftId = {shift.ShiftId}", shift);
+        await Http.PutAsJsonAsync($"shiftController/update?shiftId={shift.ShiftId}", shift);
         shifts.Remove(s);
     }
 }
