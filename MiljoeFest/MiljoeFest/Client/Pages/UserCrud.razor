@@ -15,13 +15,10 @@
  
 
 <!--Oprettelse af form som følger modellen for obj "s"-->
-<EditForm Model="@u" OnValidSubmit="createUser">
+<EditForm Model="@u" OnValidSubmit="CreateUser">
     
     
-    <label>Bruger ID:</label>
-    <div>
-        <InputNumber @bind-Value="@u.UserId" placeholder="ID" readonly/>
-    </div>
+    
     <label>Rolle:</label>
     <div>
         <InputNumber @bind-Value="@u.RoleId" placeholder="ID"/>
@@ -193,10 +190,10 @@
     // Oprettelse af ny instans af Shift ved navn "s"
 
 
-    public async Task createUser()
+    public async Task CreateUser()
     {
         // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
-        await Http.PostAsJsonAsync<User>("userController/createUser", u);
+        await Http.PostAsJsonAsync<User>("userController/create", u);
        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
@@ -209,7 +206,7 @@
 
     public async Task DeleteUser()
     {
-        await Http.DeleteAsync($"userController/deleteUser?userId={deleteUser.UserId}");
+        await Http.DeleteAsync($"userController/delete?userId={deleteUser.UserId}");
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 }
