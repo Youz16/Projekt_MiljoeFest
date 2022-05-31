@@ -9,18 +9,16 @@
   <h2 class="display-10">Dine bookede vagter vil være under bruger info</h2>
  
   <hr class="my-4">
- 
-  
 </div>
-<div>""</div>
+
 <table class="table">
         <thead>
             <tr>
-               
+                <th>Vagt ID</th>
                 <th>Lokation</th>
-                <th>Start Tidspunkt</th>
-                <th>Slut Tidspunkt</th>
-
+                <th>Starttidspunkt</th>
+                <th>Sluttidspunkt</th>
+                <th>Handling</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +29,8 @@
                     <td>@s.Location</td>
                     <td>@s.Start</td>
                     <td>@s.End</td>
-                    
                     <td>
-                        <button class="btn btn-danger" @onclick="()=>BookShift(s)">Book</button>
-                       
+                        <button class="btn btn-success" @onclick="()=>BookShift(s)">Book</button>
                     </td>
                 </tr>
             }

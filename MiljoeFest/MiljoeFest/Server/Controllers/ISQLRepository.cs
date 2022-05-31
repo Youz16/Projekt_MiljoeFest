@@ -32,6 +32,7 @@ namespace MiljoeFest.Server.Controllers
         Task<IEnumerable<Assignment>> GetAssignments();
 
         Task DeleteAssignment(int assignmentId);
+
         Task UpdateAssignment(int assignmentId, Assignment a);
 
 

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fglzI5p8DmI5bC5+/PQkoM/qgjIm4BHGGQpQIFfRr0VB0hjiMHp/qfrmaD2edSYf8Pxoi39kmVjsGRIh9BpqGQ==",
+  "dgSpecHash": "sPssUHumScWMxjfg/y/ryOt8UbBWqFytIVXlGvy5+8Y6VcyINr7s99e1uG5t6bubmhtSxSaGOKAEqyxPWwptvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BloodFray\\Desktop\\projekt\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\BloodFray\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
-    "C:\\Users\\BloodFray\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
-    "C:\\Users\\BloodFray\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Yousef\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Yousef\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
+    "C:\\Users\\Yousef\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

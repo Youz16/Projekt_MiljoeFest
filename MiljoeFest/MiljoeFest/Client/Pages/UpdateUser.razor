@@ -7,86 +7,94 @@
 
 <PageTitle>Miljø Fest | Bruger Info</PageTitle>
 <h1>Bruger Info</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Opdater dine oplysninger</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!--Oprettelse af form som følger modellen for obj "u"-->
+                <EditForm Model="@StateContainer" OnValidSubmit="update">
 
-<p>Indtast venligst de krævede oplysninger.</p>
-<!--Oprettelse af form som følger modellen for obj "u"-->
-<EditForm Model="@StateContainer" OnValidSubmit="update">
-    
-    <label>Fulde navn:</label>
-    <div>
-        <InputText @bind-Value="@StateContainer.Name" placeholder="Navn"/>
-    </div>
-    
-    <label>Brugertype:</label>
-    <div>
-        <InputNumber @bind-Value="@StateContainer.RoleId" readonly/>
-    </div>
+                    <label>Fulde navn:</label>
+                    <div>
+                        <InputText @bind-Value="@StateContainer.Name" placeholder="Navn" />
+                    </div>
 
-    <label>Afdeling:</label>
-    <div>
-        <InputText @bind-Value="@StateContainer.Department" placeholder="Ønskede afdeling"/>
-    </div>
+                    <label>Brugertype:</label>
+                    <div>
+                        <InputNumber @bind-Value="@StateContainer.RoleId" readonly />
+                    </div>
 
-    <label>E-mail:</label>
-    <div>
-        <InputText @bind-Value="@StateContainer.Email" placeholder="adresse@email.com"/>
-    </div>
-    
-    <label>Mobil:</label>
-    <div>
-        <InputText @bind-Value="@StateContainer.Phone" placeholder="12 34 56 78"/>
-    </div>
-    
-    <label>Kompetencer:</label>
-    <div>
-        <InputText @bind-Value="@StateContainer.Skills" placeholder="Ledelse, marketing e.l."/>
-    </div>
+                    <label>Afdeling:</label>
+                    <div>
+                        <InputText @bind-Value="@StateContainer.Department" placeholder="Ønskede afdeling" />
+                    </div>
 
-    <label>Fødselsdato:</label>
-    <div>
-        <InputDate @bind-Value="@StateContainer.BirthDay" min="1960-01-01"/>
-    </div>
+                    <label>E-mail:</label>
+                    <div>
+                        <InputText @bind-Value="@StateContainer.Email" placeholder="adresse@email.com" />
+                    </div>
 
-    <label>Førstehjælpsbevis:</label>
-    <div>
-        <InputCheckbox @bind-Value="@StateContainer.FirstAid"/>
+                    <label>Mobil:</label>
+                    <div>
+                        <InputText @bind-Value="@StateContainer.Phone" placeholder="12 34 56 78" />
+                    </div>
+
+                    <label>Kompetencer:</label>
+                    <div>
+                        <InputText @bind-Value="@StateContainer.Skills" placeholder="Ledelse, marketing e.l." />
+                    </div>
+
+                    <label>Fødselsdato:</label>
+                    <div>
+                        <InputDate @bind-Value="@StateContainer.BirthDay" min="1960-01-01" />
+                    </div>
+
+                    <label>Førstehjælpsbevis:</label>
+                    <div>
+                        <InputCheckbox @bind-Value="@StateContainer.FirstAid" />
+                    </div>
+
+                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <button type="submit" class="btn btn-success mt-3" href="/">
+                        @updateAlert
+                    </button>
+                    <button class="btn btn-danger mt-3" @onclick="delete">@deleteAlert</button>
+                </EditForm>
+            </div>
+        </div>
     </div>
-    
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3" href="/">
-        @updateAlert
-    </button>
-    <button class="btn btn-danger" @onclick="delete">@deleteAlert</button>
-</EditForm>
+</div>
 
 
 
 <p>Nedenfor ser du dine bookede vagter</p>
 
 <table class="table">
-        <thead>
+    <thead>
+        <tr>
+            <th>Vagt ID</th>
+            <th>Lokalitet</th>
+            <th>Start-tidspunkt</th>
+            <th>Slut-tidspunkt</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in shifts)
+        {
             <tr>
-               <th>Vagt Id</th>
-                <th>Lokations</th>
-                <th>Start Tidspunkt</th>
-                <th>Slut Tidspunkt</th>
+                <td>@s.ShiftId</td>
+                <td>@s.Location</td>
+                <td>@s.Start</td>
+                <td>@s.End</td>
+
 
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var s in shifts)
-            {
-                <tr>
-                    <td>@s.ShiftId</td>
-                    <td>@s.Location</td>
-                    <td>@s.Start</td>
-                    <td>@s.End</td>
-                    
-                   
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
 @code {
     private string updateAlert = "Opdater";

@@ -6,131 +6,155 @@
 <PageTitle>Opgave Redigering</PageTitle>
 
 <div class="jumbotron">
-  <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
-  
- 
-  <hr class="my-4">
- 
- 
+    <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
 
-<!--Oprettelse af form som følger modellen for obj "s"-->
-<EditForm Model="@a" OnValidSubmit="createAssignment">
-    
-    
-    <label>Koordinator ID:</label>
-    <div>
-        <InputNumber @bind-Value="@StateContainer.UserId" placeholder="Koordinator ID" readonly/>
-    </div>
-    
-    <label>Opgavenavn:</label>
-    <div>
-        <InputText @bind-Value="@a.AssignmentName" placeholder="Svens fedtede Flæske Grillen"/>
-    </div>
-    
-    <label>Afdeling:</label>
-    <div>
-        <InputText @bind-Value="@a.Department" placeholder="Mad"/>
-    </div>
-    
-    <label>Start Tidspunkt:</label>
-    <div>
-        <InputDate  @bind-Value="@a.Start"/>
-    </div>
-   <label>Slut Tidspunkt:</label>
-    <div>
-        <InputDate  @bind-Value="@a.End"/>
-    </div>
-    
-    
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3">
-        @OpretText
-    </button>
 
-</EditForm>
-
-<EditForm Model="@current" OnValidSubmit="UpdateAssignment">
-    
-     
-    <label>Koordinator ID:</label>
-    <div>
-        <InputNumber @bind-Value="@current.UserId" placeholder="Koordinator ID"/>
-    </div>
-    <label>Opgave Navn:</label>
-    <div>
-        <InputText @bind-Value="@current.AssignmentName" placeholder="Fedted Flæsk"/>
-    </div>
-    <label>Opgave start og slut:</label>
-    <div>
-        <InputDate @bind-Value="@current.Start"/>
-    </div>
-     <div>
-        <InputDate @bind-Value="@current.End"/>
-    </div>
-    
-
-    
-   
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3">
-        @OpdaterText
-    </button>
-</EditForm>
-
+    <hr class="my-4">
 </div>
 
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Opgaveoprettelse</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!--Oprettelse af form som følger modellen for obj "s"-->
+                <EditForm Model="@a" OnValidSubmit="createAssignment">
+                    <label>Koordinator ID:</label>
+                    <div>
+                        <InputNumber @bind-Value="@StateContainer.UserId" placeholder="Koordinator ID" readonly />
+                    </div>
 
-    <EditForm Model="@deleteAssignment" OnValidSubmit="DeleteAssignment">
-        <label>Slet opgave med ID:</label>
-    <div>
-        <InputNumber @bind-Value="@deleteAssignment.AssignmentId" placeholder="Opgave ID"/>
+                    <label>Opgavenavn:</label>
+                    <div>
+                        <InputText @bind-Value="@a.AssignmentName" placeholder="Opgavenavn" />
+                    </div>
+
+                    <label>Afdeling:</label>
+                    <div>
+                        <InputText @bind-Value="@a.Department" placeholder="Afdelingsnavn" />
+                    </div>
+
+                    <label>Startdato:</label>
+                    <div>
+                        <InputDate @bind-Value="@a.Start" />
+                    </div>
+
+                    <label>Slutdato:</label>
+                    <div>
+                        <InputDate @bind-Value="@a.End" />
+                    </div>
+
+                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <button type="submit" class="btn btn-success mt-3">
+                        @OpretText
+                    </button>
+                </EditForm>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-danger mt-3">
-        @deleteText
-    </button>
-</EditForm>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Opgaveopdatering</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <EditForm Model="@current" OnValidSubmit="UpdateAssignment">
+                        <label>Koordinator ID:</label>
+                        <div>
+                            <InputNumber @bind-Value="@current.UserId" placeholder="Koordinator ID" />
+                        </div>
 
-<table class="table">
-        <thead>
+                        <label>Opgavenavn:</label>
+                        <div>
+                            <InputText @bind-Value="@current.AssignmentName" placeholder="Opgavenavn" />
+                        </div>
+
+                        <label>Opgave start og slut:</label>
+                        <div>
+                            <InputDate @bind-Value="@current.Start" />
+                        </div>
+                        <div>
+                            <InputDate @bind-Value="@current.End" />
+                        </div>
+                        <label>Opgavestatus:</label>
+                        <div>
+                            <select @bind="@current.Status">
+                                <option value="">Vælg status</option>
+                                <option value="Planlægning">I planlægning</option>
+                                <option value="Udførelse">Under udførelse</option>
+                                <option value="Udført">Udført</option>
+                            </select>
+                        </div>
+
+                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <button type="submit" class="btn btn-success mt-3">
+                            @OpdaterText
+                        </button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Opgavesletning</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <EditForm Model="@deleteAssignment" OnValidSubmit="DeleteAssignment">
+                    <label>Slet opgave med ID:</label>
+                    <div>
+                        <InputNumber @bind-Value="@deleteAssignment.AssignmentId" placeholder="Opgave ID" />
+                    </div>
+                    <button type="submit" class="btn btn-danger mt-3">
+                        @deleteText
+                    </button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Opgave ID</th>
+            <th>Koordinator ID</th>
+            <th>Navn</th>
+            <th>Afdeling</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in assignments)
+        {
             <tr>
-               <th>Opgave ID</th>
-               <th>Koordinator ID</th>
-               <th>Navn</th>
-               <th>Afdeling</th>
-               <th>Start</th>
-               <th>End</th>
+                <td>@a.AssignmentId</td>
+                <td>@a.UserId</td>
+                <td>@a.AssignmentName</td>
+                <td>@a.Department</td>
+                <td>@a.Start</td>
+                <td>@a.End</td>
+                <td>@a.Status</td>
+                <td>
+                    <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
 
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var a in assignments)
-            {
-                <tr>
-                    <td>@a.AssignmentId</td>
-                    <td>@a.UserId</td>
-                    <td>@a.AssignmentName</td>
-                    <td>@a.Department</td>
-                    <td>@a.Start</td>
-                    <td>@a.End</td>
-                   
-                    
-                    <td>
-                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
-                       
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
 @code {
     List<Assignment> assignments = new();
-    public string OpretText = "Opret Opgave";
-    public string OpdaterText = "Opdater Opgave";
-    public string deleteText = "Slet Opgave";
     private Assignment a = new();
     private Assignment current = new();
     private Assignment deleteAssignment = new();
+    public string OpretText = "Opret Opgave";
+    public string OpdaterText = "Opdater Opgave";
+    public string deleteText = "Slet Opgave";
 
     protected override async Task OnInitializedAsync()
     {
@@ -145,6 +169,7 @@
         current.Department = a.Department;
         current.Start = a.Start;
         current.End = a.End;
+        current.Status = a.Status;
 
     }
 

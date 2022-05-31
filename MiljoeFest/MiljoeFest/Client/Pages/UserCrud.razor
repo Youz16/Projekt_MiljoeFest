@@ -1,178 +1,218 @@
-﻿
-@page "/userCrud"
+﻿@page "/userCrud"
 @using MiljoeFest.Shared;
 @inject HttpClient Http
 @inject StateContainer StateContainer;
 
-<PageTitle>Opgave Redigering</PageTitle>
+<PageTitle>Miljøfest | Bruger-redigering</PageTitle>
 
 <div class="jumbotron">
-  <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
-  
- 
-  <hr class="my-4">
- 
- 
+    <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
 
-<!--Oprettelse af form som følger modellen for obj "s"-->
-<EditForm Model="@u" OnValidSubmit="CreateUser">
-    
-    
-    
-    <label>Rolle:</label>
-    <div>
-        <InputNumber @bind-Value="@u.RoleId" placeholder="ID"/>
-    </div>
-    <label>Navn:</label>
-    <div>
-        <InputText @bind-Value="@u.Name" placeholder="Gøj"/>
-    </div>
-    <label>Afdeling:</label>
-    <div>
-        <InputText @bind-Value="@u.Department" placeholder="Mad"/>
-    </div>
-    <label>Email:</label>
-    <div>
-        <InputText @bind-Value="@u.Email" placeholder="gmail.com"/>
-    </div>
-    <label>Tlf:</label>
-    <div>
-        <InputText @bind-Value="@u.Phone" placeholder="20304050"/>
-    </div>
-    <label>Kompetencer:</label>
-    <div>
-        <InputText @bind-Value="@u.Skills" placeholder="tømrer"/>
-    </div>
-    <label>Fødselsdag:</label>
-    <div>
-        <InputDate @bind-Value="@u.BirthDay" placeholder="200/05/18"/>
-    </div>
-    <label>Førstehjælp:</label>
-    <div>
-        <InputCheckbox @bind-Value="@u.FirstAid"/>
-    </div>
-    
-    
-    
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3">
-        @OpretText
-    </button>
 
-</EditForm>
-
-<EditForm Model="@current" OnValidSubmit="UpdateUser">
-    
-     
-    
-    <label>Rolle:</label>
-    <div>
-        <InputNumber @bind-Value="@current.RoleId" placeholder="ID" readonly/>
-    </div>
-    <label>Navn:</label>
-    <div>
-        <InputText @bind-Value="@current.Name" placeholder="Gøj" />
-    </div>
-    <label>Afdeling:</label>
-    <div>
-        <InputText @bind-Value="@current.Department" placeholder="Mad"/>
-    </div>
-    <label>Email:</label>
-    <div>
-        <InputText @bind-Value="@current.Email" placeholder="mail.com" />
-    </div>
-    <label>Tlf:</label>
-    <div>
-        <InputText @bind-Value="@current.Phone" placeholder="20304050" />
-    </div>
-    <label>Kompetencer:</label>
-    <div>
-        <InputText @bind-Value="@current.Skills" placeholder="tømrer"/>
-    </div>
-    <label>Fødselsdag:</label>
-    <div>
-        <InputDate @bind-Value="@current.BirthDay" placeholder="200/05/18"/>
-    </div>
-    <label>Førstehjælp:</label>
-    <div>
-        <InputCheckbox @bind-Value="@current.FirstAid" />
-    </div>
-    
-
-    
-   
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3">
-        @OpdaterText
-    </button>
-</EditForm>
-
+    <hr class="my-4">
 </div>
 
 
-    <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
-        <label>Slet opgave med ID:</label>
-    <div>
-        <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Bruger ID"/>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Brugeroprettelse</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!--Oprettelse af form som følger modellen for obj "u"-->
+                <EditForm Model="@u" OnValidSubmit="CreateUser">
+                    <label>Rolle:</label>
+                    <div>
+                        <select @bind="@u.RoleId">
+                            <option>Vælg rolle</option>
+                            <option value=1>Koordinator</option>
+                            <option value=2>Frivillig</option>
+                        </select>
+                    </div>
+
+                    <label>Navn:</label>
+                    <div>
+                        <InputText @bind-Value="@u.Name" placeholder="Navn" />
+                    </div>
+
+                    <label>Afdeling:</label>
+                    <div>
+                        <InputText @bind-Value="@u.Department" placeholder="Afdelingsnavn" />
+                    </div>
+
+                    <label>Email:</label>
+                    <div>
+                        <InputText @bind-Value="@u.Email" placeholder="adresse@mail.com" />
+                    </div>
+
+                    <label>Tlf:</label>
+                    <div>
+                        <InputText @bind-Value="@u.Phone" placeholder="12 34 56 78" />
+                    </div>
+
+                    <label>Kompetencer:</label>
+                    <div>
+                        <InputText @bind-Value="@u.Skills" placeholder="Kompetencer" />
+                    </div>
+
+                    <label>Fødselsdag:</label>
+                    <div>
+                        <InputDate @bind-Value="@u.BirthDay" placeholder="dd/mm/åååå" />
+                    </div>
+
+                    <label>Førstehjælp:</label>
+                    <div>
+                        <InputCheckbox @bind-Value="@u.FirstAid" />
+                    </div>
+
+                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <button type="submit" class="btn btn-success mt-3">
+                        @OpretText
+                    </button>
+                </EditForm>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-danger mt-3">
-        @deleteText
-    </button>
-</EditForm>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Brugeropdatering</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <EditForm Model="@current" OnValidSubmit="UpdateUser">
+                        <label>Rolle:</label>
+                        <div>
+                            <select @bind="@current.RoleId">
+                                <option>Vælg rolle</option>
+                                <option value=1>Koordinator</option>
+                                <option value=2>Frivillig</option>
+                            </select>
+                        </div>
 
-<table class="table">
-        <thead>
+                        <label>Navn:</label>
+                        <div>
+                            <InputText @bind-Value="@current.Name" placeholder="Navn" />
+                        </div>
+
+                        <label>Afdeling:</label>
+                        <div>
+                            <InputText @bind-Value="@current.Department" placeholder="Afdelingsnavn" />
+                        </div>
+
+                        <label>Email:</label>
+                        <div>
+                            <InputText @bind-Value="@current.Email" placeholder="adresse@mail.com" />
+                        </div>
+
+                        <label>Tlf:</label>
+                        <div>
+                            <InputText @bind-Value="@current.Phone" placeholder="12 34 56 78" />
+                        </div>
+
+                        <label>Kompetencer:</label>
+                        <div>
+                            <InputText @bind-Value="@current.Skills" placeholder="Kompetencer" />
+                        </div>
+
+                        <label>Fødselsdag:</label>
+                        <div>
+                            <InputDate @bind-Value="@current.BirthDay" placeholder="dd/mm/åååå" />
+                        </div>
+
+                        <label>Førstehjælp:</label>
+                        <div>
+                            <InputCheckbox @bind-Value="@current.FirstAid" />
+                        </div>
+
+                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <button type="submit" class="btn btn-success mt-3">
+                            @OpdaterText
+                        </button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
+                    <label>Slet opgave med ID:</label>
+                    <div>
+                        <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Bruger ID" />
+                    </div>
+
+                    <button type="submit" class="btn btn-danger mt-3">
+                        @deleteText
+                    </button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Bruger ID</th>
+            <th>Rolle</th>
+            <th>Navn</th>
+            <th>Afdeling</th>
+            <th>Email</th>
+            <th>Tlf.</th>
+            <th>Kompetencer</th>
+            <th>Fødselsdag</th>
+            <th>Førstehjælp</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in users)
+        {
             <tr>
-               <th>Bruger ID</th>
-               <th>Rolle</th>
-               <th>Navn</th>
-               <th>Afdeling</th>
-               <th>Email</th>
-               <th>Tlf.</th>
-               <th>Kompetencer</th>
-               <th>Fødselsdag</th>
-               <th>Førstehjælp</th>
-
+                <td>@u.UserId</td>
+                <td>@u.RoleId</td>
+                <td>@u.Name</td>
+                <td>@u.Department</td>
+                <td>@u.Email</td>
+                <td>@u.Phone</td>
+                <td>@u.Skills</td>
+                <td>@u.BirthDay</td>
+                <td>@u.FirstAid</td>
+                <td>
+                    <button class="btn btn-danger" @onclick="()=>AssignCurrent(u)">Select</button>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var u in users)
-            {
-                <tr>
-                    <td>@u.UserId</td>
-                    <td>@u.RoleId</td>
-                    <td>@u.Name</td>
-                    <td>@u.Department</td>
-                    <td>@u.Email</td>
-                    <td>@u.Phone</td>
-                    <td>@u.Skills</td>
-                    <td>@u.BirthDay</td>
-                    <td>@u.FirstAid</td>
-                   
-                    
-                    <td>
-                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(u)">Select</button>
-                       
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
 @code {
-    List<User> users = new();
     public string OpretText = "Opret Bruger";
     public string OpdaterText = "Opdater Bruger";
     public string deleteText = "Slet Bruger";
+
+    // New instance of a List containing User-instances, for loading several users into the page
+    List<User> users = new();
+
+    // A private instance of User named "u", acts like a model for the EditForm
     private User u = new();
+
+    // New private instance of User named "current"
     private User current = new();
+
+    // New private instance of User named "deleteUser"
     private User deleteUser = new();
 
+    // Upon loading the page, a list of users is retrieved
     protected override async Task OnInitializedAsync()
     {
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
+    // Assigns values to the instance of User named "current"
     public void AssignCurrent(User u)
     {
         current.UserId = u.UserId;
@@ -183,30 +223,33 @@
         current.Phone = u.Phone;
         current.BirthDay = u.BirthDay;
         current.FirstAid = u.FirstAid;
-
     }
-
-
-    // Oprettelse af ny instans af Shift ved navn "s"
 
 
     public async Task CreateUser()
     {
-        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen for oprettelse af bruger
         await Http.PostAsJsonAsync<User>("userController/create", u);
-       users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+
+        // Genindlæser listen over alle brugere efter oprettelsen af ny bruger (Opdaterer listen)
+        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
     public async Task UpdateUser()
     {
-
+        // Opdaterer bruger med bestemt brugerID til oplysninger i den nye instans med samme id (current)
         await Http.PutAsJsonAsync($"userController/update?userId={current.UserId}", current);
+
+        // Genindlæser listen over alle brugere efter opdatering af brugeroplysninger (Opdaterer listen)
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
     public async Task DeleteUser()
     {
+        // Sletter en bruger med et bestemt brugerID som tilhører instansen "deleteUser"
         await Http.DeleteAsync($"userController/delete?userId={deleteUser.UserId}");
+
+        // Genindlæser listen over alle brugere efter sletning af en bruger (Opdaterer listen)
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 }

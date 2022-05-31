@@ -10,7 +10,10 @@
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string? Skills { get; set; }
-        public DateTime? BirthDay { get; set; }
+
+        // Standardværdi = dagens dato
+        // på denne måde er vores kalenderdropdowns sat til dagens dato før der vælges en dato
+        public DateTime? BirthDay { get; set; } = DateTime.Now;
         public bool FirstAid { get; set; }
 
        

@@ -9,88 +9,102 @@
 <h1>Vagt Info</h1>
 
 <p>Indtast opdateringer</p>
-<!--Oprettelse af form som følger modellen for obj "u"-->
-<EditForm Model="@shift" OnValidSubmit="update">
-    
-    <label>Vagt ID:</label>
-    <div>
-        <InputNumber @bind-Value="@shift.ShiftId" placeholder="Id"/>
-    </div>
-    
-    <label>Opgave ID:</label>
-    <div>
-        <InputNumber @bind-Value="@shift.AssignmentId" placeholder="Id"/>
-    </div>
 
-    <label>Booked af:</label>
-    <div>
-        <InputNumber @bind-Value="@shift.UserId" placeholder="Frivilig Id"/>
-    </div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vagtopdatering</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!--Oprettelse af form som følger modellen for obj "u"-->
+                <EditForm Model="@shift" OnValidSubmit="update">
 
-    <label>Lokation:</label>
-    <div>
-        <InputText @bind-Value="@shift.Location" placeholder="Lokation"/>
-    </div>
-    
-    <label>Start Tidspunkt:</label>
-    <div>
-        <InputDate @bind-Value="@shift.Start" />
-    </div>
-    
-    <label>Slut Tidspunkt:</label>
-    <div>
-        <InputDate @bind-Value="@shift.End" />
-    </div>
+                    <label>Vagt ID:</label>
+                    <div>
+                        <InputNumber @bind-Value="@shift.ShiftId" placeholder="Id" />
+                    </div>
 
-    <label>Booked:</label>
-    <div>
-        <InputCheckbox @bind-Value="@shift.IsBooked"/>
+                    <label>Opgave ID:</label>
+                    <div>
+                        <InputNumber @bind-Value="@shift.AssignmentId" placeholder="Id" />
+                    </div>
+
+                    <label>Booked af:</label>
+                    <div>
+                        <InputNumber @bind-Value="@shift.UserId" placeholder="Frivilig Id" />
+                    </div>
+
+                    <label>Lokation:</label>
+                    <div>
+                        <InputText @bind-Value="@shift.Location" placeholder="Lokation" />
+                    </div>
+
+                    <label>Start Tidspunkt:</label>
+                    <div>
+                        <InputDate @bind-Value="@shift.Start" />
+                    </div>
+
+                    <label>Slut Tidspunkt:</label>
+                    <div>
+                        <InputDate @bind-Value="@shift.End" />
+                    </div>
+
+                    <label>Booked:</label>
+                    <div>
+                        <InputCheckbox @bind-Value="@shift.IsBooked" />
+                    </div>
+
+                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <button type="submit" class="btn btn-success mt-3" href="/">
+                        @updateAlert
+                    </button>
+                    <button class="btn btn-danger mt-3" @onclick="delete">@deleteAlert</button>
+                </EditForm>
+            </div>
+        </div>
     </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Opgaveopdatering</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <!--Oprettelse af form som følger modellen for obj "u"-->
+                    <EditForm Model="@assign" OnValidSubmit="updateAssignment">
 
-    
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3" href="/">
-        @updateAlert
-    </button>
-    <button class="btn btn-danger" @onclick="delete">@deleteAlert</button>
-</EditForm>
+                        <label>Opgave ID:</label>
+                        <div>
+                            <InputNumber @bind-Value="@assign.AssignmentId" placeholder="Opgave ID" />
+                        </div>
 
-<PageTitle>Miljø Fest | Vagter</PageTitle>
-<h2>Opgave Info</h2>
+                        <label>Ansvarlig koordinator:</label>
+                        <div>
+                            <InputNumber @bind-Value="@assign.UserId" placeholder="Koordinator ID" />
+                        </div>
 
-<p>Indtast opdateringer</p>
-<!--Oprettelse af form som følger modellen for obj "u"-->
-<EditForm Model="@assign" OnValidSubmit="updateAssignment">
-    
-    <label>Opgave ID:</label>
-    <div>
-        <InputNumber @bind-Value="@assign.AssignmentId" placeholder="Id"/>
+                        <label>Opgavenavn:</label>
+                        <div>
+                            <InputText @bind-Value="@assign.AssignmentName" placeholder="Opgavenavn" />
+                        </div>
+
+                        <label>Afdeling:</label>
+                        <div>
+                            <InputText @bind-Value="@assign.Department" placeholder="Afdelingsnavn" />
+                        </div>
+
+                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <button type="submit" class="btn btn-success mt-3" href="/">
+                            @updateAlertA
+                        </button>
+                        <button class="btn btn-danger mt-3" @onclick="deleteAssignment">@deleteAlertA</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <label>Ansvarlig Koordinator:</label>
-    <div>
-        <InputNumber @bind-Value="@assign.UserId" placeholder="Id"/>
-    </div>
+</div>
 
-    <label>Opgave Navn:</label>
-    <div>
-        <InputText @bind-Value="@assign.AssignmentName" placeholder="Pølsebod"/>
-    </div>
 
-    <label>Afdeling:</label>
-    <div>
-        <InputText @bind-Value="@assign.Department" placeholder="Mad"/>
-    </div>
-    
-    
-
-    
-    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-    <button type="submit" class="btn btn-success mt-3" href="/">
-        @updateAlertA
-    </button>
-    <button class="btn btn-danger" @onclick="deleteAssignment">@deleteAlertA</button>
-</EditForm>
 
 @code {
     public string updateAlert = "Opdater Vagt";
@@ -120,7 +134,8 @@
 
     public async Task update()
     {
-        if (StateContainer.UserId == 1) {
+        if (StateContainer.UserId == 1)
+        {
 
             await Http.PutAsJsonAsync($"shiftController/update?shiftId={shift.ShiftId}", shift);
         }
@@ -132,15 +147,16 @@
 
     public async Task deleteAssignment()
     {
-              
-                await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={assign.AssignmentId}");
-            
-       
+
+        await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={assign.AssignmentId}");
+
+
     }
 
     public async Task updateAssignment()
     {
-        if (StateContainer.UserId == 1) {
+        if (StateContainer.UserId == 1)
+        {
 
             await Http.PutAsJsonAsync($"assignmentController/updateAssignment?AssignmentId={assign.AssignmentId}", assign);
         }
@@ -149,4 +165,4 @@
             updateAlert = "Du har ikke rettigheder til at udføre den valgte handling";
         }
     }
-}
+        }
