@@ -71,21 +71,21 @@ namespace MiljoeFest.Server.Controllers
 
         public async Task<IEnumerable<User>> GetAllUsers()
         {
-            string commandText = $@"SELECT role_id as RoleId, user_id as UserId, name, department, email, phone, skills, birthday, first_aid as FirstAid
+            string commandText = $@"SELECT user_id as UserId, role_id as RoleId, name, department, email, phone, skills, birthday, first_aid as FirstAid
                                     FROM users"; 
                                     
-            IEnumerable<User>? u = null;
+            IEnumerable<User>? users = null;
             
             try
             {
 
-                u = await DBContext.connection.QueryAsync<User>(commandText);
+                users = await DBContext.connection.QueryAsync<User>(commandText);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return u;
+            return users;
         }
 
         public async Task CreateUser(User u)

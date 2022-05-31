@@ -24,11 +24,11 @@
     </div>
     <label>Rolle:</label>
     <div>
-        <InputNumber @bind-Value="@u.RoleId" placeholder="ID" readonly/>
+        <InputNumber @bind-Value="@u.RoleId" placeholder="ID"/>
     </div>
     <label>Navn:</label>
     <div>
-        <InputText @bind-Value="@u.Name" placeholder="Gøj" />
+        <InputText @bind-Value="@u.Name" placeholder="Gøj"/>
     </div>
     <label>Afdeling:</label>
     <div>
@@ -36,11 +36,11 @@
     </div>
     <label>Email:</label>
     <div>
-        <InputText @bind-Value="@u.Email" placeholder="@gmail.com" />
+        <InputText @bind-Value="@u.Email" placeholder="gmail.com"/>
     </div>
     <label>Tlf:</label>
     <div>
-        <InputText @bind-Value="@u.Phone" placeholder="20304050" />
+        <InputText @bind-Value="@u.Phone" placeholder="20304050"/>
     </div>
     <label>Kompetencer:</label>
     <div>
@@ -52,7 +52,7 @@
     </div>
     <label>Førstehjælp:</label>
     <div>
-        <InputCheckBox @bind-Value="@u.FirstAid" />
+        <InputCheckbox @bind-Value="@u.FirstAid"/>
     </div>
     
     
@@ -82,7 +82,7 @@
     </div>
     <label>Email:</label>
     <div>
-        <InputText @bind-Value="@current.Email" placeholder="@gmail.com" />
+        <InputText @bind-Value="@current.Email" placeholder="mail.com" />
     </div>
     <label>Tlf:</label>
     <div>
@@ -98,7 +98,7 @@
     </div>
     <label>Førstehjælp:</label>
     <div>
-        <InputCheckBox @bind-Value="@current.FirstAid" />
+        <InputCheckbox @bind-Value="@current.FirstAid" />
     </div>
     
 
@@ -116,7 +116,7 @@
     <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
         <label>Slet opgave med ID:</label>
     <div>
-        <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Opgave ID"/>
+        <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Bruger ID"/>
     </div>
     <button type="submit" class="btn btn-danger mt-3">
         @deleteText
@@ -154,7 +154,7 @@
                    
                     
                     <td>
-                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
+                         <button class="btn btn-danger" @onclick="()=>AssignCurrent(u)">Select</button>
                        
                     </td>
                 </tr>
@@ -169,21 +169,23 @@
     public string deleteText = "Slet Bruger";
     private User u = new();
     private User current = new();
-    private User deleteAssignment = new();
+    private User deleteUser = new();
 
     protected override async Task OnInitializedAsync()
     {
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
-    public void AssignCurrent(Assignment a)
+    public void AssignCurrent(User u)
     {
-        current.AssignmentId = a.AssignmentId;
-        current.UserId = a.UserId;
-        current.AssignmentName = a.AssignmentName;
-        current.Department = a.Department;
-        current.Start = a.Start;
-        current.End = a.End;
+        current.UserId = u.UserId;
+        current.RoleId = u.RoleId;
+        current.Name = u.Name;
+        current.Department = u.Department;
+        current.Email = u.Email;
+        current.Phone = u.Phone;
+        current.BirthDay = u.BirthDay;
+        current.FirstAid = u.FirstAid;
 
     }
 
@@ -191,24 +193,24 @@
     // Oprettelse af ny instans af Shift ved navn "s"
 
 
-    public async Task createAssignment()
+    public async Task createUser()
     {
         // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
-        await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+        await Http.PostAsJsonAsync<User>("userController/createUser", u);
+       users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
-    public async Task UpdateAssignment()
+    public async Task UpdateUser()
     {
 
-        await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+        await Http.PutAsJsonAsync($"userController/update?userId={current.UserId}", current);
+        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
-    public async Task DeleteAssignment()
+    public async Task DeleteUser()
     {
-        await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+        await Http.DeleteAsync($"userController/deleteUser?userId={deleteUser.UserId}");
+        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 }
 
