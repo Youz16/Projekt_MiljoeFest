@@ -2,7 +2,7 @@
 @using MiljoeFest.Shared;
 @inject HttpClient Http
 @inject StateContainer StateContainer;
-<PageTitle>Index</PageTitle>
+<PageTitle>Miljøfest | Forside</PageTitle>
 
 <div class="jumbotron">
     <h1 class="display-4">Velkommen til Miljø Fest!</h1>
@@ -14,6 +14,7 @@
     </p>
 </div>
 
+<!--A table is created, with given headings for the extracted data-->
 <table class="table">
     <thead>
         <tr>
@@ -28,6 +29,7 @@
         </tr>
     </thead>
     <tbody>
+        <!--The list of users (created in the code-block) is looped through, plotting data into a table-->
         @foreach (var user in users)
         {
             <tr>
@@ -39,7 +41,8 @@
                 <td>@user.BirthDay</td>
                 <td>@user.FirstAid</td>
                 <td>
-                    <button class="btn btn-danger" @onclick="()=>AssignCurrentUser(user)">Select</button>
+                    <!--Button triggers AssignCurrentUser function mentioned in code-block-->
+                <button class="btn btn-danger" @onclick="()=>AssignCurrentUser(user)">Select</button>
                 </td>
             </tr>
         }
@@ -47,12 +50,16 @@
 </table>
 
 @code {
+    // New instance of a List containing User-instances, for loading several users into the page
     List<User> users = new();
 
+    // Upon loading the page, a list of users is retrieved
     protected override async Task OnInitializedAsync()
     {
         users = await Http.GetFromJsonAsync<List<User>>("userController/getUsers?role=1");
     }
+
+    // Assigns values of a chosen user to the instance of StateContainer
     public void AssignCurrentUser(User user)
     {
         StateContainer.UserId = user.UserId;

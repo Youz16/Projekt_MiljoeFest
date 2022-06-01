@@ -7,19 +7,20 @@
 
 <div class="jumbotron">
     <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
-
-
     <hr class="my-4">
 </div>
 
-
+<!--Creation of a div with the class "row"-->
 <div class="row">
+    <!--within the row, divs with the class "col-sm-4" are made, columns with given dimensions and margins-->
     <div class="col-sm-4">
+        <!--Within each column, a card is appended with a body, title, some text and the EditForm-->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Brugeroprettelse</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <!--Oprettelse af form som følger modellen for obj "u"-->
+                
+                <!--Creation of an EditForm that follows the model of User.cs and creates a new user in DB upon submit-->
                 <EditForm Model="@u" OnValidSubmit="CreateUser">
                     <label>Rolle:</label>
                     <div>
@@ -65,7 +66,7 @@
                         <InputCheckbox @bind-Value="@u.FirstAid" />
                     </div>
 
-                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <!--Button triggers CreateUser function mentioned in code-block-->
                     <button type="submit" class="btn btn-success mt-3">
                         @OpretText
                     </button>
@@ -73,12 +74,15 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Brugeropdatering</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <!--Creation of an EditForm that follows the model of User.cs and updates the info of the chosen user upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateUser">
                         <label>Rolle:</label>
                         <div>
@@ -124,7 +128,7 @@
                             <InputCheckbox @bind-Value="@current.FirstAid" />
                         </div>
 
-                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <!--Button triggers UpdateUser function mentioned in code-block-->
                         <button type="submit" class="btn btn-success mt-3">
                             @OpdaterText
                         </button>
@@ -133,17 +137,20 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <h5 class="card-title">Brugersletning</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <!--Creation of an EditForm that follows the model of User.cs and deletes the user with given info upon submit-->
                 <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
-                    <label>Slet opgave med ID:</label>
+                    <label>Slet bruger med ID:</label>
                     <div>
                         <InputNumber @bind-Value="@deleteUser.UserId" placeholder="Bruger ID" />
                     </div>
 
+                    <!--Button triggers DeleteUser function mentioned in code-block-->
                     <button type="submit" class="btn btn-danger mt-3">
                         @deleteText
                     </button>
@@ -153,7 +160,7 @@
     </div>
 </div>
 
-
+<!--A table is created, with given headings for the extracted data-->
 <table class="table mt-5">
     <thead>
         <tr>
@@ -169,6 +176,7 @@
         </tr>
     </thead>
     <tbody>
+        <!--The list of users (created in the code-block) is looped through, plotting data into a table-->
         @foreach (var u in users)
         {
             <tr>
@@ -182,6 +190,7 @@
                 <td>@u.BirthDay</td>
                 <td>@u.FirstAid</td>
                 <td>
+                    <!--Button triggers AssignCurrent function mentioned in code-block-->
                     <button class="btn btn-danger" @onclick="()=>AssignCurrent(u)">Select</button>
                 </td>
             </tr>
@@ -221,6 +230,7 @@
         current.Department = u.Department;
         current.Email = u.Email;
         current.Phone = u.Phone;
+        current.Skills = u.Skills;
         current.BirthDay = u.BirthDay;
         current.FirstAid = u.FirstAid;
     }
@@ -228,29 +238,47 @@
 
     public async Task CreateUser()
     {
-        // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen for oprettelse af bruger
+        // Sends an instance of User to the DB, with the data from the EditForm
         await Http.PostAsJsonAsync<User>("userController/create", u);
 
-        // Genindlæser listen over alle brugere efter oprettelsen af ny bruger (Opdaterer listen)
+        // Refreshes the list of users after saving the new instance, to include it in the shown list
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+
+        // String gets changed to confirm the registration of a new user
+        OpretText = "Bruger oprettet";
     }
 
     public async Task UpdateUser()
     {
-        // Opdaterer bruger med bestemt brugerID til oplysninger i den nye instans med samme id (current)
+        // Updates a user with a given userId to the info provided in the instance of the same userId (current)
         await Http.PutAsJsonAsync($"userController/update?userId={current.UserId}", current);
 
-        // Genindlæser listen over alle brugere efter opdatering af brugeroplysninger (Opdaterer listen)
+        // Refreshes the list of users after updating the user, to include updated data in the shown list
         users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+        
+        // String gets changed to confirm the update of a given user's information
+        OpdaterText = "Bruger opdateret";
     }
 
     public async Task DeleteUser()
     {
-        // Sletter en bruger med et bestemt brugerID som tilhører instansen "deleteUser"
-        await Http.DeleteAsync($"userController/delete?userId={deleteUser.UserId}");
-
-        // Genindlæser listen over alle brugere efter sletning af en bruger (Opdaterer listen)
-        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+        if (StateContainer.RoleId == 1)
+        {
+            // If the StateContainer chosen on the homepage has a roleId of 1
+            // Deletes a user with a given userId that is provided to the instance of user (deleteUser)
+            await Http.DeleteAsync($"userController/delete?userId={deleteUser.UserId}");
+            
+            // Refreshes the list of users after deleting a given user, to exclude them in the shown list
+            users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
+            
+            // Changes deleteText to confirm that user with given ID was deleted
+            deleteText = "Bruger slettet";
+        } 
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes deleteText to inform that they don't have the rights to delete a user 
+            deleteText = "Rettigheder haves ikke";
+        }
     }
 }
-

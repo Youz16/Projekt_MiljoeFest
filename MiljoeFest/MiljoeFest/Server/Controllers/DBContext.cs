@@ -5,18 +5,19 @@ namespace MiljoeFest.Server.Controllers
 {
     public class DBContext
     {
-        //create variables to connection contain the connection to database.
+        // Create variable to connection contain the connection to database.
         public NpgsqlConnection connection;
 
-        //used to access extension configuration
+        // Used to access extension configuration
         
 
-        //create a connection to a database, using secure ConnectionString.
+        // Create a connection to a database, using ConnectionString.
         public DBContext()
         {
-            
-            connection = new NpgsqlConnection("UserID = Postgres; Password = dbAdmin1!; Host = miljofest-db.postgres.database.azure.com; Port = 5432; Database = MiljofestDB;");
+            // Specifies connection using connectionstring
+            connection = new NpgsqlConnection("UserID=Systembruger;Password=dbUser1!;Host=miljofest-db.postgres.database.azure.com;Port=5432;Database=MiljofestDB;");
+            // Establishes connection to the DB
             connection.Open();
         }
     }
-}//"Server=miljofest-db.postgres.database.azure.com;Database=MiljoDB;Port=5432;User Id=Postgres;Password=dbAdmin1!;Ssl Mode=Require;"  //string ConnectionString =  _configuration.GetConnectionString(input);
+}

@@ -2,7 +2,7 @@
 @using MiljoeFest.Shared;
 @inject HttpClient Http
 @inject StateContainer StateContainer;
-<PageTitle>Booking</PageTitle>
+<PageTitle>Miljøfest | Booking</PageTitle>
 
 <div class="jumbotron">
   <h1 class="display-4">Book dine vagter her</h1>
@@ -11,6 +11,7 @@
   <hr class="my-4">
 </div>
 
+<!--A table is created, with given headings for the extracted data-->
 <table class="table">
         <thead>
             <tr>
@@ -22,6 +23,7 @@
             </tr>
         </thead>
         <tbody>
+            <!--The list of shifts (created in the code-block) is looped through, plotting data into a table-->
             @foreach (var s in shifts)
             {
                 <tr>
@@ -30,6 +32,7 @@
                     <td>@s.Start</td>
                     <td>@s.End</td>
                     <td>
+                        <!--Button triggers BookShift function mentioned in code-block-->
                         <button class="btn btn-success" @onclick="()=>BookShift(s)">Book</button>
                     </td>
                 </tr>
@@ -38,14 +41,16 @@
     </table>
 
 @code {
+    // New instance of a List containing Shift-instances, for loading several shifts into the page
     List<Shift> shifts = new();
 
-
+    // Upon loading the page, a list of shifts is retrieved
     protected override async Task OnInitializedAsync()
     {
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getShifts?booked=false");
     }
-
+    
+    // Assigns values to the instance of Shift named "shift"
     public async Task BookShift(Shift s)
     {
         Shift shift = new();
@@ -57,8 +62,11 @@
         shift.End = s.End;
         shift.BookedBy = StateContainer.UserId;
         shift.IsBooked = true;
-
+        
+        // Updates a shift with a given ShiftId to the info provided in the instance of the same ShiftId ("shift")
         await Http.PutAsJsonAsync($"shiftController/update?shiftId={shift.ShiftId}", shift);
+        
+        // Removes the shift from the shown list on the page
         shifts.Remove(s);
     }
 }

@@ -20,7 +20,8 @@ namespace MiljoeFest.Server.Controllers
 
         }
         */
-        //update a user identified by userId, changes are contained in a user object called u
+        
+        // Updates a user identified by userId, changes are contained in a User object called u
         public async Task UpdateUser(int userId, User u)
         {
             //@ - tagged attributes are later specified in queryArguments
@@ -43,7 +44,7 @@ namespace MiljoeFest.Server.Controllers
             await DBContext.connection.ExecuteAsync(commandText, parameters);
         }
 
-
+        // Returns a list of users with the specified role
         public async Task<IEnumerable<User>> GetUsers(int role)
         {
 
@@ -69,6 +70,7 @@ namespace MiljoeFest.Server.Controllers
             return users;
         }
 
+        // Returns a list of all users, ordered by ascending userId
         public async Task<IEnumerable<User>> GetAllUsers()
         {
             string commandText = $@"SELECT user_id as UserId, role_id as RoleId, name, department, email, phone, skills, birthday, first_aid as FirstAid
@@ -88,6 +90,7 @@ namespace MiljoeFest.Server.Controllers
             return users;
         }
 
+        // Creates a User with the specified parameters
         public async Task CreateUser(User u)
         {
             //@ - tagged attributes are specified in queryArguments
@@ -113,6 +116,7 @@ namespace MiljoeFest.Server.Controllers
             }
         }
 
+        // Deletes a User with the specified userId as a parameter
         public async Task DeleteUser(int userId)
         {
             string commandText = $"DELETE FROM users WHERE user_id = @uId";
@@ -123,6 +127,7 @@ namespace MiljoeFest.Server.Controllers
             await DBContext.connection.ExecuteAsync(commandText, parameters);
         }
 
+        // Returns a list of all users, ordered by the assignmentId they belong to
         public async Task<IEnumerable<Shift>> GetAllShifts()
         {
             string commandText = $@"SELECT shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
@@ -143,6 +148,7 @@ namespace MiljoeFest.Server.Controllers
             return shifts;
         }
 
+        // Returns a list of shifts that are either booked or not booked, using "booked" as a parameter
         public async Task<IEnumerable<Shift>> GetShifts(bool booked)
         {
             string commandText = $@"SELECT shift_id as ShiftId, assignment_id as AssignmentId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
@@ -165,7 +171,8 @@ namespace MiljoeFest.Server.Controllers
             }
             return shifts;
         }
-
+        
+        // Returns a list of shifts that have been booked by the specified userId as a parameter
         public async Task<IEnumerable<Shift>> GetUserShifts(int userId)
         {
             string commandText = $@"SELECT shift_id as ShiftId, user_id as UserId, location, start_time as Start, end_time as End, booked_by as BookedBy, is_booked as IsBooked
@@ -188,6 +195,7 @@ namespace MiljoeFest.Server.Controllers
             return shifts;
         }
 
+        // Deletes a Shift with the specified shiftId as a parameter
         public async Task DeleteShift(int shiftId)
         {
             string commandText = $"DELETE FROM shifts WHERE shift_id = @sId";
@@ -205,6 +213,7 @@ namespace MiljoeFest.Server.Controllers
             }
         }
 
+        // Creates a Shift with the specified parameters
         public async Task CreateShift(Shift s)
         {
             string commandText = $"INSERT INTO shifts (assignment_id, user_id, location, start_time, end_time, booked_by, is_booked) VALUES (@asId, @uId, @loc, @sStart, @sEnd, @sBookedBy, @sBooked)";
@@ -227,7 +236,8 @@ namespace MiljoeFest.Server.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
-
+        
+        // Update a shift identified by shiftId, changes are contained in a Shift object called s
         public async Task UpdateShift(int shiftId, Shift s)
         {
             //@ - tagged attributes are later specified in queryArguments
@@ -257,6 +267,7 @@ namespace MiljoeFest.Server.Controllers
 
         }
 
+        // Creates an Assignment with the specified parameters
         public async Task CreateAssignment(Assignment a)
         {
             string commandText =
@@ -280,6 +291,7 @@ namespace MiljoeFest.Server.Controllers
             }
         }
 
+        // Returns a list all of Assignments
         public async Task<IEnumerable<Assignment>> GetAssignments()
         {
             string commandText =
@@ -299,6 +311,7 @@ namespace MiljoeFest.Server.Controllers
             return assignments;
         }
 
+        // Deletes an Assignment with the specified assignmentId as a parameter
         public async Task DeleteAssignment(int assignmentId)
         {
             string commandText = $@"DELETE FROM assignments WHERE assignment_id = @aId";
@@ -316,6 +329,7 @@ namespace MiljoeFest.Server.Controllers
 
         }
 
+        // Updates an Assignment identified by assignmentId, changes are contained in an Assignment object called a
         public async Task UpdateAssignment(int assignmentId, Assignment a)
         {
             string commandText = $@"UPDATE assignments 

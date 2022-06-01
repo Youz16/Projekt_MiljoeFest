@@ -3,7 +3,7 @@
 @inject HttpClient Http
 @inject StateContainer StateContainer;
 
-<PageTitle>Vagt Redigering</PageTitle>
+<PageTitle>Miljøfest | Vagt-redigering</PageTitle>
 
 <div class="jumbotron">
     <h1 class="display-4">Koordinatorer kan redigerer vagter her</h1>
@@ -12,13 +12,17 @@
     <hr class="my-4">
 </div>
 
+<!--Creation of a div with the class "row"-->
 <div class="row">
+    <!--within the row, divs with the class "col-sm-4" are made, columns with given dimensions and margins-->
     <div class="col-sm-4">
+         <!--Within each column, a card is appended with a body, title, some text and the EditForm-->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Vagtoprettelse</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <!--Oprettelse af form som følger modellen for obj "s"-->
+                
+                <!--Creation of an EditForm that follows the model of Shift.cs and creates a shift in DB upon submit-->
                 <EditForm Model="@s" OnValidSubmit="createShift">
 
                     <label>Opgaveid:</label>
@@ -28,7 +32,7 @@
 
                     <label>Coordinator:</label>
                     <div>
-                        <InputNumber @bind-Value="@StateContainer.UserId" readonly />
+                        <InputNumber @bind-Value="@StateContainer.UserId" readonly/>
                     </div>
 
                     <label>Lokalitet:</label>
@@ -44,7 +48,7 @@
                         <InputDate @bind-Value="@s.End" min="1960-01-01" />
                     </div>
 
-                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <!--Button triggers createShift function mentioned in code-block-->
                     <button type="submit" class="btn btn-success mt-3">
                         @OpretText
                     </button>
@@ -52,12 +56,15 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Vagtopdatering</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    <!--Creation of an EditForm that follows the model of Shift.cs and updates the info of the chosen shift upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateShift">
 
                         <label>Vagt ID:</label>
@@ -96,7 +103,7 @@
                             <InputCheckbox @bind-Value="@current.IsBooked" />
                         </div>
 
-                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <!--Button triggers UpdateShift function mentioned in code-block-->
                         <button type="submit" class="btn btn-success mt-3">
                             @OpdaterText
                         </button>
@@ -105,16 +112,21 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Vagtsletning</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                
+                <!--Creation of an EditForm that follows the model of Shift.cs and deletes the shift with given info upon submit-->
                 <EditForm Model="@deleteShift" OnValidSubmit="DeleteShift">
                     <label>Slet vagt med ID:</label>
                     <div>
                         <InputNumber @bind-Value="@deleteShift.ShiftId" placeholder="Vagt ID" />
                     </div>
+                    
+                    <!--Button triggers DeleteShift function mentioned in code-block-->
                     <button type="submit" class="btn btn-danger mt-3">
                         @deleteText
                     </button>
@@ -124,6 +136,7 @@
     </div>
 </div>
 
+<!--A table is created, with given headings for the extracted data-->
 <table class="table mt-5">
     <thead>
         <tr>
@@ -139,6 +152,7 @@
         </tr>
     </thead>
     <tbody>
+        <!--The list of assignments (created in the code-block) is looped through, plotting data into a table-->
         @foreach (var s in shifts)
         {
             <tr>
@@ -152,8 +166,8 @@
                 <td>@s.IsBooked</td>
 
                 <td>
+                    <!--Button triggers AssignCurrentShift function mentioned in code-block-->
                     <button class="btn btn-danger" @onclick="()=>AssignCurrentShift(s)">Select</button>
-
                 </td>
             </tr>
         }
@@ -161,18 +175,29 @@
 </table>
 
 @code {
-    List<Shift> shifts = new();
     public string OpretText = "Opret vagt";
     public string OpdaterText = "Opdater vagt";
     public string deleteText = "Slet vagt";
+
+    // New instance of a List containing Shift-instances, for loading several shifts into the page
+    List<Shift> shifts = new();
+
+    // A private instance of Shift named "s", acts like a model for the EditForm
     private Shift s = new();
+
+    // New private instance of Shift named "current"
     private Shift current = new();
+
+    // New private instance of Shift named "deleteShift"
     private Shift deleteShift = new();
+
+    // Upon loading the page, a list of shifts is retrieved
     protected override async Task OnInitializedAsync()
     {
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
     }
 
+    // Assigns values to the instance of Shift named "current"
     public void AssignCurrentShift(Shift s)
     {
         current.ShiftId = s.ShiftId;
@@ -186,26 +211,30 @@
     }
 
 
-    // Oprettelse af ny instans af Shift ved navn "s"
-
-
     public async Task createShift()
     {
-        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        // Sends an instance of shift to the DB, with the data from the EditForm
         await Http.PostAsJsonAsync<Shift>("shiftController/create", s);
+
+        // Refreshes the list of shifts after saving the new instance, to include it in the shown list
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
     }
 
     public async Task UpdateShift()
     {
-
+        // Updates a shift with a given ShiftId to the info provided in the instance of the same ShiftId (current)
         await Http.PutAsJsonAsync($"shiftController/update?shiftId={current.ShiftId}", current);
+        
+        // Refreshes the list of shifts after updating the shift, to include updated data in the shown list
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
     }
 
     public async Task DeleteShift()
     {
+        // Deletes an assignment with a given ShiftId that is provided to the instance of Shift (deleteShift)
         await Http.DeleteAsync($"shiftController/delete?shiftId={deleteShift.ShiftId}");
+        
+        // Refreshes the list of shifts after deleting a given shift, to exclude it in the shown list
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
     }
 }

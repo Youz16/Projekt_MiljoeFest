@@ -3,7 +3,7 @@
 @inject HttpClient Http
 @inject StateContainer StateContainer;
 
-<PageTitle>Opgave Redigering</PageTitle>
+<PageTitle>Miljøfest | Opgave-Redigering</PageTitle>
 
 <div class="jumbotron">
     <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
@@ -12,13 +12,17 @@
     <hr class="my-4">
 </div>
 
+<!--Creation of a div with the class "row"-->
 <div class="row">
+    <!--within the row, divs with the class "col-sm-4" are made, columns with given dimensions and margins-->
     <div class="col-sm-4">
+        <!--Within each column, a card is appended with a body, title, some text and the EditForm-->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opgaveoprettelse</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <!--Oprettelse af form som følger modellen for obj "s"-->
+
+                <!--Creation of an EditForm that follows the model of Assignment.cs and creates an assignment in DB upon submit-->
                 <EditForm Model="@a" OnValidSubmit="createAssignment">
                     <label>Koordinator ID:</label>
                     <div>
@@ -45,7 +49,7 @@
                         <InputDate @bind-Value="@a.End" />
                     </div>
 
-                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                    <!--Button triggers createAssignment function mentioned in code-block-->
                     <button type="submit" class="btn btn-success mt-3">
                         @OpretText
                     </button>
@@ -53,12 +57,15 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Opgaveopdatering</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <!--Creation of an EditForm that follows the model of Assignment.cs and updates the info of the chosen assignment upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateAssignment">
                         <label>Koordinator ID:</label>
                         <div>
@@ -87,7 +94,7 @@
                             </select>
                         </div>
 
-                        <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
+                        <!--Button triggers UpdateAssignment function mentioned in code-block-->
                         <button type="submit" class="btn btn-success mt-3">
                             @OpdaterText
                         </button>
@@ -96,16 +103,21 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opgavesletning</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                <!--Creation of an EditForm that follows the model of Assignment.cs and deletes the assignment with given info upon submit-->
                 <EditForm Model="@deleteAssignment" OnValidSubmit="DeleteAssignment">
                     <label>Slet opgave med ID:</label>
                     <div>
                         <InputNumber @bind-Value="@deleteAssignment.AssignmentId" placeholder="Opgave ID" />
                     </div>
+
+                    <!--Button triggers DeleteAssignment function mentioned in code-block-->
                     <button type="submit" class="btn btn-danger mt-3">
                         @deleteText
                     </button>
@@ -115,6 +127,7 @@
     </div>
 </div>
 
+<!--A table is created, with given headings for the extracted data-->
 <table class="table mt-5">
     <thead>
         <tr>
@@ -128,6 +141,7 @@
         </tr>
     </thead>
     <tbody>
+        <!--The list of assignments (created in the code-block) is looped through, plotting data into a table-->
         @foreach (var a in assignments)
         {
             <tr>
@@ -139,8 +153,8 @@
                 <td>@a.End</td>
                 <td>@a.Status</td>
                 <td>
+                    <!--Button triggers AssignCurrent function mentioned in code-block-->
                     <button class="btn btn-danger" @onclick="()=>AssignCurrent(a)">Select</button>
-
                 </td>
             </tr>
         }
@@ -148,19 +162,29 @@
 </table>
 
 @code {
-    List<Assignment> assignments = new();
-    private Assignment a = new();
-    private Assignment current = new();
-    private Assignment deleteAssignment = new();
     public string OpretText = "Opret Opgave";
     public string OpdaterText = "Opdater Opgave";
     public string deleteText = "Slet Opgave";
 
+    // New instance of a List containing Assignment-instances, for loading several assignments into the page
+    List<Assignment> assignments = new();
+
+    // A private instance of Assignment named "a", acts like a model for the EditForm
+    private Assignment a = new();
+
+    // New private instance of Assignment named "current"
+    private Assignment current = new();
+
+    // New private instance of assignment named "deleteAssignment"
+    private Assignment deleteAssignment = new();
+
+    // Upon loading the page, a list of assignments is retrieved
     protected override async Task OnInitializedAsync()
     {
         assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
     }
 
+    // Assigns values to the instance of Assignment named "current"
     public void AssignCurrent(Assignment a)
     {
         current.AssignmentId = a.AssignmentId;
@@ -173,27 +197,30 @@
 
     }
 
-
-    // Oprettelse af ny instans af Shift ved navn "s"
-
-
     public async Task createAssignment()
     {
-        // Sender obj "s" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        // Sends an instance of Assignment to the DB, with the data from the EditForm
         await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
+
+        // Refreshes the list of assignments after saving the new instance, to include it in the shown list
         assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
     }
 
     public async Task UpdateAssignment()
     {
-
+        // Updates an assignment with a given AssignmentId to the info provided in the instance of the same AssignmentId (current)
         await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
+
+        // Refreshes the list of assignments after updating the assignment, to include updated data in the shown list
         assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
     }
 
     public async Task DeleteAssignment()
     {
+        // Deletes an assignment with a given AssignmentId that is provided to the instance of Assignment (deleteAssignment)
         await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
+
+        // Refreshes the list of assignments after deleting a given assignment, to exclude it in the shown list
         assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
     }
 }

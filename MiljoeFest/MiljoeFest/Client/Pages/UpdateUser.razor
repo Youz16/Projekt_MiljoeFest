@@ -5,17 +5,21 @@
 @inject HttpClient Http
 @inject StateContainer StateContainer;
 
-<PageTitle>Miljø Fest | Bruger Info</PageTitle>
-<h1>Bruger Info</h1>
+<PageTitle>Miljøfest | Brugeropdatering</PageTitle>
+<h1>Brugerinfo</h1>
+
+<!--Creation of a div with the class "row"-->
 <div class="row">
+    <!--within the row, divs with the class "col-sm-4" are made, columns with given dimensions and margins-->
     <div class="col-sm-4">
+        <!--Within each column, a card is appended with a body, title, some text and the EditForm-->
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opdater dine oplysninger</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <!--Oprettelse af form som følger modellen for obj "u"-->
-                <EditForm Model="@StateContainer" OnValidSubmit="update">
 
+                <!--Creation of an EditForm that follows the model of StateContainer.cs and updates the info upon submit-->
+                <EditForm Model="@StateContainer" OnValidSubmit="update">
                     <label>Fulde navn:</label>
                     <div>
                         <InputText @bind-Value="@StateContainer.Name" placeholder="Navn" />
@@ -56,10 +60,12 @@
                         <InputCheckbox @bind-Value="@StateContainer.FirstAid" />
                     </div>
 
-                    <!--Knap sender info til db og redirecter bruger til forsiden igen (href = "/")-->
-                    <button type="submit" class="btn btn-success mt-3" href="/">
+                    <!--Button triggers update function mentioned in code-block-->
+                    <button type="submit" class="btn btn-success mt-3">
                         @updateAlert
                     </button>
+
+                    <!--Button triggers Delete function mentioned in code-block-->
                     <button class="btn btn-danger mt-3" @onclick="delete">@deleteAlert</button>
                 </EditForm>
             </div>
@@ -70,7 +76,7 @@
 
 
 <p>Nedenfor ser du dine bookede vagter</p>
-
+<!--A table is created, with given headings for the extracted data-->
 <table class="table">
     <thead>
         <tr>
@@ -78,10 +84,10 @@
             <th>Lokalitet</th>
             <th>Start-tidspunkt</th>
             <th>Slut-tidspunkt</th>
-
         </tr>
     </thead>
     <tbody>
+        <!--The list of shifts (created in the code-block) is looped through, plotting data into a table-->
         @foreach (var s in shifts)
         {
             <tr>
@@ -89,41 +95,43 @@
                 <td>@s.Location</td>
                 <td>@s.Start</td>
                 <td>@s.End</td>
-
-
             </tr>
         }
     </tbody>
 </table>
 
 @code {
+    // String for the update button, possible to change the text of the button
     private string updateAlert = "Opdater";
 
+    // String for the delete button, possible to change the text of the button
     private string deleteAlert = "Slet bruger";
 
+    // Instance of a List containing data in the type of Shifts (Shift.cs)
     private List<Shift> shifts = new();
 
+    // Upon loading the page, List of shifts gets data from the controller
+    // where the selected user's id is equal to the user_id in the DB
     protected override async Task OnInitializedAsync()
     {
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getUserShifts?userId={StateContainer.UserId}");
     }
 
+    // Delete method, triggered by the delete-button on the page
     public async Task delete()
     {
-        if (StateContainer.UserId == 1)
-        {
-            await Http.DeleteAsync($"userController/delete?userId={StateContainer.UserId}");
-            deleteAlert = "Brugeren blev slettet";
-        }
-        else
-        {
-            deleteAlert = "Du har ikke rettigheder til at udføre den valgte handling";
-        }
+        // The userId of the statecontainer will point at a certain user that will get deleted
+        // upon delete, the button shows a new text that confirms that the user is deleted
+
+        await Http.DeleteAsync($"userController/delete?userId={StateContainer.UserId}");
+        deleteAlert = "Brugeren blev slettet";
+
     }
 
     public async Task update()
     {
-        // Sender obj "u" afsted med de oplysninger fra bindede inputfelter i EditFormen ovenover
+        // Sends back the data stored in the StateContainer
+        // with the changes in the EditForm as they are bound to the properties of it and refreshes list
         await Http.PutAsJsonAsync($"userController/update?userId={StateContainer.UserId}", StateContainer);
         updateAlert = "Bruger Opdateret";
     }
