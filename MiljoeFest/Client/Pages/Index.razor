@@ -19,6 +19,7 @@
     <thead>
         <tr>
             <th>Bruger ID</th>
+            <th>Rolle</th>
             <th>Navn</th>
             <th>Email</th>
             <th>Tlf.</th>
@@ -34,6 +35,16 @@
         {
             <tr>
                 <td>@user.UserId</td>
+                <!--If the user's roleId is 1, "Koordinator" is written in the column "Rolle"-->
+                @if(user.RoleId == 1)
+                {
+                    <td>Koordinator</td>
+                }
+                else if(user.RoleId == 2)
+                {
+                    <td>Frivillig</td>
+                }
+                <!--If the user's roleId is 2, "Frivillig" is written in the column "Rolle"-->
                 <td>@user.Name</td>
                 <td>@user.Email</td>
                 <td>@user.Phone</td>
@@ -56,7 +67,7 @@
     // Upon loading the page, a list of users is retrieved
     protected override async Task OnInitializedAsync()
     {
-        users = await Http.GetFromJsonAsync<List<User>>("userController/getUsers?role=1");
+        users = await Http.GetFromJsonAsync<List<User>>($"userController/getAllUsers");
     }
 
     // Assigns values of a chosen user to the instance of StateContainer

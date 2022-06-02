@@ -6,7 +6,7 @@
 <PageTitle>Miljøfest | Bruger-redigering</PageTitle>
 
 <div class="jumbotron">
-    <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
+    <h1 class="display-4">Bruger-redigering</h1>
     <hr class="my-4">
 </div>
 
@@ -18,7 +18,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Brugeroprettelse</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Du bedes udfylde alle felter herunder, og derefter klikke på knappen for at oprette en ny bruger.</p>
                 
                 <!--Creation of an EditForm that follows the model of User.cs and creates a new user in DB upon submit-->
                 <EditForm Model="@u" OnValidSubmit="CreateUser">
@@ -80,7 +80,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Brugeropdatering</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Vælg venligst en bruger fra listen nedenunder, og derefter bedes du indtaste opdaterede oplysninger.</p>
                     
                     <!--Creation of an EditForm that follows the model of User.cs and updates the info of the chosen user upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateUser">
@@ -142,7 +142,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Brugersletning</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Du bedes specificere ID'et for den bestemte bruger som ønskes slettet.</p>
                 <!--Creation of an EditForm that follows the model of User.cs and deletes the user with given info upon submit-->
                 <EditForm Model="@deleteUser" OnValidSubmit="DeleteUser">
                     <label>Slet bruger med ID:</label>
@@ -181,7 +181,16 @@
         {
             <tr>
                 <td>@u.UserId</td>
-                <td>@u.RoleId</td>
+                <!--If the user's roleId is 1, "Koordinator" is written in the column "Rolle"-->
+                @if(u.RoleId == 1)
+                {
+                    <td>Koordinator</td>
+                }
+                else if(u.RoleId == 2)
+                {
+                    <td>Frivillig</td>
+                }
+                <!--If the user's roleId is 2, "Frivillig" is written in the column "Rolle"-->
                 <td>@u.Name</td>
                 <td>@u.Department</td>
                 <td>@u.Email</td>
@@ -238,6 +247,8 @@
 
     public async Task CreateUser()
     {
+        if (StateContainer.RoleId == 1)
+        {
         // Sends an instance of User to the DB, with the data from the EditForm
         await Http.PostAsJsonAsync<User>("userController/create", u);
 
@@ -246,10 +257,19 @@
 
         // String gets changed to confirm the registration of a new user
         OpretText = "Bruger oprettet";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpretText to inform that they don't have the rights to create a user 
+            OpretText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task UpdateUser()
     {
+        if (StateContainer.RoleId == 1)
+        {
         // Updates a user with a given userId to the info provided in the instance of the same userId (current)
         await Http.PutAsJsonAsync($"userController/update?userId={current.UserId}", current);
 
@@ -258,6 +278,13 @@
         
         // String gets changed to confirm the update of a given user's information
         OpdaterText = "Bruger opdateret";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpdaterText to inform that they don't have the rights to update a user 
+            OpdaterText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task DeleteUser()

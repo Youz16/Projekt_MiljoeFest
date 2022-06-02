@@ -6,7 +6,7 @@
 @inject StateContainer StateContainer;
 
 <PageTitle>Miljøfest | Brugeropdatering</PageTitle>
-<h1>Brugerinfo</h1>
+<h1>Min bruger</h1>
 
 <!--Creation of a div with the class "row"-->
 <div class="row">
@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opdater dine oplysninger</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Du bedes rette de ønskede felter med opdaterede oplysninger og derefter klikke på knappen.</p>
 
                 <!--Creation of an EditForm that follows the model of StateContainer.cs and updates the info upon submit-->
                 <EditForm Model="@StateContainer" OnValidSubmit="update">

@@ -5,10 +5,8 @@ namespace MiljoeFest.Server.Controllers
 {
     public class DBContext
     {
-        // Create variable to connection contain the connection to database.
+        // Create variable to connection, contains the connection to database.
         public NpgsqlConnection connection;
-
-        // Used to access extension configuration
         
 
         // Create a connection to a database, using ConnectionString.

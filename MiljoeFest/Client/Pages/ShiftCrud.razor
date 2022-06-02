@@ -6,7 +6,7 @@
 <PageTitle>Miljøfest | Vagt-redigering</PageTitle>
 
 <div class="jumbotron">
-    <h1 class="display-4">Koordinatorer kan redigerer vagter her</h1>
+    <h1 class="display-4">Vagt-redigering</h1>
 
 
     <hr class="my-4">
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Vagtoprettelse</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Du bedes udfylde alle felter herunder, og derefter klikke på knappen for at oprette en ny vagt.</p>
                 
                 <!--Creation of an EditForm that follows the model of Shift.cs and creates a shift in DB upon submit-->
                 <EditForm Model="@s" OnValidSubmit="createShift">
@@ -62,7 +62,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Vagtopdatering</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Vælg venligst en vagt fra listen nedenunder, og derefter bedes du indtaste opdaterede oplysninger.</p>
                     
                     <!--Creation of an EditForm that follows the model of Shift.cs and updates the info of the chosen shift upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateShift">
@@ -117,7 +117,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Vagtsletning</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Du bedes specificere ID'et for den bestemte vagt som ønskes slettet.</p>
                 
                 <!--Creation of an EditForm that follows the model of Shift.cs and deletes the shift with given info upon submit-->
                 <EditForm Model="@deleteShift" OnValidSubmit="DeleteShift">
@@ -148,7 +148,6 @@
             <th>Slut Tidspunkt</th>
             <th>Booked af</th>
             <th>Er den booked</th>
-
         </tr>
     </thead>
     <tbody>
@@ -213,29 +212,65 @@
 
     public async Task createShift()
     {
-        // Sends an instance of shift to the DB, with the data from the EditForm
-        await Http.PostAsJsonAsync<Shift>("shiftController/create", s);
+        if (StateContainer.RoleId == 1)
+        {
+            // Sends an instance of shift to the DB, with the data from the EditForm
+            await Http.PostAsJsonAsync<Shift>("shiftController/create", s);
 
-        // Refreshes the list of shifts after saving the new instance, to include it in the shown list
-        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+            // Refreshes the list of shifts after saving the new instance, to include it in the shown list
+            shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+
+            // String gets changed to confirm the creation of a shift
+            OpretText = "Vagt oprettet";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpretText to inform that they don't have the rights to create a shift
+            OpretText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task UpdateShift()
     {
-        // Updates a shift with a given ShiftId to the info provided in the instance of the same ShiftId (current)
-        await Http.PutAsJsonAsync($"shiftController/update?shiftId={current.ShiftId}", current);
-        
-        // Refreshes the list of shifts after updating the shift, to include updated data in the shown list
-        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+        if (StateContainer.RoleId == 1)
+        {
+            // Updates a shift with a given ShiftId to the info provided in the instance of the same ShiftId (current)
+            await Http.PutAsJsonAsync($"shiftController/update?shiftId={current.ShiftId}", current);
+
+            // Refreshes the list of shifts after updating the shift, to include updated data in the shown list
+            shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+
+            // String gets changed to confirm the update of a given shift's information
+            OpdaterText = "Vagt opdateret";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpdaterText to inform that they don't have the rights to update a shift
+            OpdaterText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task DeleteShift()
     {
-        // Deletes an assignment with a given ShiftId that is provided to the instance of Shift (deleteShift)
-        await Http.DeleteAsync($"shiftController/delete?shiftId={deleteShift.ShiftId}");
-        
-        // Refreshes the list of shifts after deleting a given shift, to exclude it in the shown list
-        shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+        if (StateContainer.RoleId == 1)
+        {
+            // Deletes an assignment with a given ShiftId that is provided to the instance of Shift (deleteShift)
+            await Http.DeleteAsync($"shiftController/delete?shiftId={deleteShift.ShiftId}");
+
+            // Refreshes the list of shifts after deleting a given shift, to exclude it in the shown list
+            shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
+
+            // Changes deleteText to confirm that shift with given ID was deleted
+            deleteText = "Vagt slettet";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes deleteText to inform that they don't have the rights to delete a shift
+            deleteText = "Rettigheder haves ikke";
+        }
     }
 }
 

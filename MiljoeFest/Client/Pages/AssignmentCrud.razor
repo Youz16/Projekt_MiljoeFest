@@ -6,7 +6,7 @@
 <PageTitle>Miljøfest | Opgave-Redigering</PageTitle>
 
 <div class="jumbotron">
-    <h1 class="display-4">Koordinatorer kan redigerer opgaver her</h1>
+    <h1 class="display-4">Opgave-redigering</h1>
 
 
     <hr class="my-4">
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opgaveoprettelse</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Udfyld venligst felterne herunder og klik derefter på knappen for at oprette en ny opgave.</p>
 
                 <!--Creation of an EditForm that follows the model of Assignment.cs and creates an assignment in DB upon submit-->
                 <EditForm Model="@a" OnValidSubmit="createAssignment">
@@ -63,7 +63,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Opgaveopdatering</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Vælg venligst en af opgaverne fra listen nedenunder, og derefter bedes du indtaste opdateringer.</p>
 
                     <!--Creation of an EditForm that follows the model of Assignment.cs and updates the info of the chosen assignment upon submit-->
                     <EditForm Model="@current" OnValidSubmit="UpdateAssignment">
@@ -108,7 +108,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Opgavesletning</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Du bedes specificere ID'et for den bestemte opgave som ønskes slettet</p>
 
                 <!--Creation of an EditForm that follows the model of Assignment.cs and deletes the assignment with given info upon submit-->
                 <EditForm Model="@deleteAssignment" OnValidSubmit="DeleteAssignment">
@@ -199,29 +199,66 @@
 
     public async Task createAssignment()
     {
-        // Sends an instance of Assignment to the DB, with the data from the EditForm
-        await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
+        if (StateContainer.RoleId == 1)
+        {
+            // Sends an instance of Assignment to the DB, with the data from the EditForm
+            await Http.PostAsJsonAsync<Assignment>("assignmentController/createAssignment", a);
 
-        // Refreshes the list of assignments after saving the new instance, to include it in the shown list
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+            // Refreshes the list of assignments after saving the new instance, to include it in the shown list
+            assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+
+            // String gets changed to confirm the creation of an assignment
+            OpretText = "Opgave oprettet";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpretText to inform that they don't have the rights to create an assignment
+            OpretText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task UpdateAssignment()
     {
-        // Updates an assignment with a given AssignmentId to the info provided in the instance of the same AssignmentId (current)
-        await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
+        if (StateContainer.RoleId == 1)
+        {
+            // Updates an assignment with a given AssignmentId to the info provided in the instance of the same AssignmentId (current)
+            await Http.PutAsJsonAsync($"assignmentController/updateAssignment?assignmentId={current.AssignmentId}", current);
 
-        // Refreshes the list of assignments after updating the assignment, to include updated data in the shown list
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+            // Refreshes the list of assignments after updating the assignment, to include updated data in the shown list
+            assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+
+            // String gets changed to confirm the update of a given assignment's information
+            OpdaterText = "Opgave opdateret";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes OpdaterText to inform that they don't have the rights to update an assignment
+            OpdaterText = "Rettigheder haves ikke";
+        }
     }
 
     public async Task DeleteAssignment()
     {
-        // Deletes an assignment with a given AssignmentId that is provided to the instance of Assignment (deleteAssignment)
-        await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
+        if (StateContainer.RoleId == 1)
+        {
+            // Deletes an assignment with a given AssignmentId that is provided to the instance of Assignment (deleteAssignment)
+            await Http.DeleteAsync($"assignmentController/deleteAssignment?assignmentId={deleteAssignment.AssignmentId}");
 
-        // Refreshes the list of assignments after deleting a given assignment, to exclude it in the shown list
-        assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+            // Refreshes the list of assignments after deleting a given assignment, to exclude it in the shown list
+            assignments = await Http.GetFromJsonAsync<List<Assignment>>($"assignmentController/getAssignments");
+
+            
+            // Changes deleteText to confirm that assignment with given ID was deleted
+            deleteText = "Opgave slettet";
+        }
+        else
+        {
+            // If the StateContainer chosen on the homepage doesn't have a roleId of 1
+            // Changes deleteText to inform that they don't have the rights to delete an assignment
+            deleteText = "Rettigheder haves ikke";
+        }
     }
 }
 
