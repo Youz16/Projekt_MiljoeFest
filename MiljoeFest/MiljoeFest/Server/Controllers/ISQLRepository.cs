@@ -10,16 +10,15 @@ namespace MiljoeFest.Server.Controllers
         Task<IEnumerable<User>> GetAllUsers();
 
         Task CreateUser(User u);
+        Task UpdateUser(int userId, User u);
+
+        Task DeleteUser(int userId);
 
         Task<IEnumerable<Shift>> GetAllShifts();
 
         Task<IEnumerable<Shift>> GetShifts(bool booked);
 
-        Task UpdateUser(int userId, User u);
-
         Task<IEnumerable<Shift>> GetUserShifts(int userId);
-
-        Task DeleteUser(int userId);
 
         Task DeleteShift(int shiftId);
 

@@ -94,3 +94,15 @@ C:\Users\BloodFray\Desktop\projekt\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0
 C:\Users\BloodFray\Desktop\projekt\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\refint\MiljoeFest.Shared.dll
 C:\Users\BloodFray\Desktop\projekt\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
 C:\Users\BloodFray\Desktop\projekt\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.deps.json
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\bin\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.AssemblyReference.cache
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfoInputs.cache
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.AssemblyInfo.cs
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\refint\MiljoeFest.Shared.dll
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\MiljoeFest.Shared.pdb
+C:\Users\Asger H. Lauridsen\OneDrive\Skrivebord\MiljoeFest v.3\MiljoeFest\MiljoeFest\Shared\obj\Debug\net6.0\ref\MiljoeFest.Shared.dll

@@ -1665,19 +1665,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yousef\\.nuget\\packages\\": {}
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
+      "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.3\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
       "projectName": "MiljoeFest.Client",
-      "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
-      "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Client\\obj\\",
+      "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.3\\MiljoeFest\\MiljoeFest\\Client\\MiljoeFest.Client.csproj",
+      "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.3\\MiljoeFest\\MiljoeFest\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1691,8 +1691,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
-              "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
+            "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.3\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+              "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest v.3\\MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
             }
           }
         }
@@ -1738,7 +1738,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.3, 6.0.3]"
+            "version": "[6.0.5, 6.0.5]"
           }
         ],
         "frameworkReferences": {
@@ -1746,7 +1746,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

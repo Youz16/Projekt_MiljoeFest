@@ -9,17 +9,6 @@ namespace MiljoeFest.Server.Controllers
         //create a new instance of DBContext, connecting to "festivalDB"
         private DBContext DBContext = new();
 
-        //Returns a list of users with the specified role
-        /*public async Task<IEnumerable<User>> GetUsers(int role)
-        {
-            //@role is a placeholder, later filled in at queryArguments
-            string commandText = $"(SELECT * FROM users WHERE role_id = @uRole";
-            var queryArguments = new { uRole = role };
-            var users = await DBContext.connection.QueryAsync<User>(commandText, queryArguments);
-            return users;
-
-        }
-        */
         
         // Updates a user identified by userId, changes are contained in a User object called u
         public async Task UpdateUser(int userId, User u)
