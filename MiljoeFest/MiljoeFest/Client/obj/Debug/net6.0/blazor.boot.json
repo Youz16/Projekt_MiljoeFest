@@ -198,18 +198,18 @@
       "mscorlib.dll": "sha256-ghlJNtzzYlKIliGPuf0A0Yu6dmLycSx3F9uyeddFb\/g=",
       "netstandard.dll": "sha256-qpOz\/RBwhlIYfaE2GDEmjiproxkvSf2b9GeqHxvH+lg=",
       "System.Private.CoreLib.dll": "sha256-sfzSZ3YKC2rpF77TVOKLuPgQag93QXr9U4AUc9d\/LKA=",
-      "MiljoeFest.Shared.dll": "sha256-ASOtZiiS02ColVV4K6N1UPEYXCkZTuPk8dMGJ3C+0mQ=",
-      "MiljoeFest.Client.dll": "sha256-4fuL9jfr8ymjBRlDE8eklYL16xLuXd8OIDUohwzRWwc="
+      "MiljoeFest.Shared.dll": "sha256-zJJtujIwzRk7QTQQcaGBI4wmwePgHJWkkxvui4qYPtk=",
+      "MiljoeFest.Client.dll": "sha256-uSNMKZLQHBj7h8iMVYaqpNQJXYm5xapb4NX9+ZD0bJE="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MiljoeFest.Shared.pdb": "sha256-pvQ+\/mU3Bxmd4ov5XoaNPMyitPA4Y3A8rtx4Uj8HNuQ=",
-      "MiljoeFest.Client.pdb": "sha256-k4tMwjOgCwq+bs5iXo\/AWaFj1RVa3AVFdTGJ4BSRkrs="
+      "MiljoeFest.Shared.pdb": "sha256-KnlYtsUGM3qbTBkrMXcYzPXhVy9XkAsfd8wyFfEmqWA=",
+      "MiljoeFest.Client.pdb": "sha256-QnPlmgXDq9T7MgJWW8Cm9uOscFSIZExurSpMH8Z2sqg="
     },
     "runtime": {
-      "dotnet.6.0.5.xptrmpj21y.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",
+      "dotnet.6.0.5.h6olkfahrw.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",
       "dotnet.timezones.blat": "sha256-vRU6+wGzQ3FJ0JtyPJtipblPe9MvJf+qKY20xZhuyKQ=",
       "dotnet.wasm": "sha256-vmRDDmubs49Hwffzas8p5i8FwcPcYxb33H6g5\/2UyYk=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",
