@@ -322,7 +322,8 @@ namespace MiljoeFest.Server.Controllers
         public async Task UpdateAssignment(int assignmentId, Assignment a)
         {
             string commandText = $@"UPDATE assignments 
-                                    SET user_id = @UserId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd, status = @aStatus";
+                                    SET user_id = @UserId, assignment_name = @aName, department = @aDep, start_time = @aStart, end_time = @aEnd, status = @aStatus
+                                    WHERE assignment_id = @aAssignmentId";
             
             var parameters = new DynamicParameters();
             parameters.Add("UserId", a.UserId);
@@ -331,6 +332,7 @@ namespace MiljoeFest.Server.Controllers
             parameters.Add("aStart", a.Start);
             parameters.Add("aEnd", a.End);
             parameters.Add("aStatus", a.Status);
+            parameters.Add("aAssignmentId", assignmentId);
 
             try
             {

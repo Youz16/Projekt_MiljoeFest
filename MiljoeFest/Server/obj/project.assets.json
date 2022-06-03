@@ -1176,19 +1176,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BloodFray\\.nuget\\packages\\": {}
+    "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
       "projectName": "MiljoeFest.Server",
-      "projectPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
-      "packagesPath": "C:\\Users\\BloodFray\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Server\\obj\\",
+      "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Server\\MiljoeFest.Server.csproj",
+      "packagesPath": "C:\\Users\\Asger H. Lauridsen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\BloodFray\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asger H. Lauridsen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1202,11 +1202,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
-              "projectPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Client\\MiljoeFest.Client.csproj"
+            "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Client\\MiljoeFest.Client.csproj": {
+              "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Client\\MiljoeFest.Client.csproj"
             },
-            "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
-              "projectPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
+            "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj": {
+              "projectPath": "C:\\Users\\Asger H. Lauridsen\\OneDrive\\Skrivebord\\MiljoeFest final\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj"
             }
           }
         }
