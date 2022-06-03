@@ -112,19 +112,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yousef\\.nuget\\packages\\": {}
+    "C:\\Users\\BloodFray\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
       "projectName": "MiljoeFest.Shared",
-      "projectPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
-      "packagesPath": "C:\\Users\\Yousef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yousef\\Desktop\\Projekt_MiljoeFest\\MiljoeFest\\Shared\\obj\\",
+      "projectPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Shared\\MiljoeFest.Shared.csproj",
+      "packagesPath": "C:\\Users\\BloodFray\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\BloodFray\\Desktop\\projekt lige før afl\\MiljoeFest\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\BloodFray\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -174,7 +174,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

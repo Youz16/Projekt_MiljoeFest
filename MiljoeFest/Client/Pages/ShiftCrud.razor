@@ -32,7 +32,7 @@
 
                     <label>Coordinator:</label>
                     <div>
-                        <InputNumber @bind-Value="@StateContainer.UserId" readonly/>
+                        <InputNumber @bind-Value="@s.UserId" readonly/>
                     </div>
 
                     <label>Lokalitet:</label>
@@ -187,12 +187,16 @@
     // New private instance of Shift named "current"
     private Shift current = new();
 
+
+
     // New private instance of Shift named "deleteShift"
     private Shift deleteShift = new();
 
     // Upon loading the page, a list of shifts is retrieved
     protected override async Task OnInitializedAsync()
     {
+
+        s.UserId = StateContainer.UserId;
         shifts = await Http.GetFromJsonAsync<List<Shift>>($"shiftController/getAllShifts");
     }
 
